@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-black: #000000;
+  --color-brand-red: #ff0000;
+  --color-brand-blue: #004eff;
+  --color-brand-white: #ffffff;
+  --font-sans: system-ui, "Segoe UI", Roboto, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply m-0 font-sans text-brand-black antialiased;
+  }
+
+  .prose-on-dark a {
+    @apply text-brand-white underline decoration-brand-blue underline-offset-4 hover:decoration-brand-red;
+  }
+}
