@@ -7,16 +7,28 @@ export default function PageHero({
   subtitle,
   primaryCta,
   primaryCtaHref = "#estimate",
+  primaryCtaVariant = "primary",
   secondaryCta,
   secondaryCtaHref,
   dark = true,
   imageSrc,
   imageAlt,
+  logoSrc,
+  logoAlt = "",
 }) {
   const bg = dark ? "bg-brand-black text-brand-white" : "bg-gray-50 text-brand-black";
 
   const content = (
     <>
+      {logoSrc && (
+        <img
+          src={logoSrc}
+          alt={logoAlt}
+          className="mb-6 h-14 w-auto md:h-16"
+          width="200"
+          height="85"
+        />
+      )}
       <h1 className="text-4xl font-bold tracking-tight md:text-5xl">{title}</h1>
       {subtitle && (
         <p className={`mt-4 max-w-2xl text-lg ${dark ? "text-gray-300" : "text-gray-600"}`}>
@@ -26,7 +38,7 @@ export default function PageHero({
       {(primaryCta || secondaryCta) && (
         <div className="mt-8 flex flex-col gap-4 sm:flex-row">
           {primaryCta && (
-            <Button href={primaryCtaHref} size="lg">
+            <Button href={primaryCtaHref} variant={primaryCtaVariant} size="lg">
               {primaryCta}
             </Button>
           )}

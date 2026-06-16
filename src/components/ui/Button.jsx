@@ -12,6 +12,7 @@ const variants = {
   primary: `bg-brand-red text-brand-white hover:bg-brand-red-hover focus-visible:ring-red-500 ${liftClasses}`,
   secondary: `bg-brand-blue text-brand-white hover:bg-brand-blue-hover focus-visible:ring-blue-500 ${liftClasses}`,
   inverse: `bg-brand-white text-brand-red hover:bg-gray-50 focus-visible:ring-red-500 ${liftClasses}`,
+  massSave: `bg-brand-mass-save text-brand-white hover:bg-brand-mass-save-hover focus-visible:ring-[#08c43a] ${liftClasses}`,
   outline:
     "border-2 border-brand-white text-brand-white transition-colors hover:bg-brand-white hover:text-brand-black focus-visible:ring-white",
   ghost:

@@ -131,6 +131,7 @@ export default function ContactForm({
               >
                 <option value="estimate">Free Estimate</option>
                 <option value="inspection">Schedule a Free Inspection</option>
+                <option value="mass-save">Mass Save/Rebates</option>
                 <option value="repair">Repair</option>
                 <option value="installation">Installation</option>
                 <option value="maintenance">Maintenance</option>
