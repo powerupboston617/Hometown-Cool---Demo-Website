@@ -1,7 +1,6 @@
 import { siteImages } from "../data/siteImages";
 import PageHead from "../components/layout/PageHead";
 import CTABanner from "../components/sections/CTABanner";
-import ContactForm from "../components/sections/ContactForm";
 import FeatureBlock from "../components/sections/FeatureBlock";
 import ServicesGrid from "../components/sections/ServicesGrid";
 import Button from "../components/ui/Button";
@@ -43,7 +42,7 @@ export default function HomePage() {
             </div>
             <ResponsiveImage
               src={siteImages.heroHomepage}
-              alt="Modern outdoor air conditioning unit installed at a Plymouth-area home"
+              alt="Ductless heat pump installed on a coastal New England home in the Plymouth area"
               aspectClass="aspect-square lg:aspect-[4/5]"
               className="shadow-lg shadow-black/40"
             />
@@ -112,15 +111,6 @@ export default function HomePage() {
       </Section>
 
       <CTABanner />
-
-      {/* Estimate form */}
-      <Section>
-        <Container>
-          <div className="mx-auto max-w-xl">
-            <ContactForm title="Get a Free Estimate" submitLabel="Request Estimate" />
-          </div>
-        </Container>
-      </Section>
     </>
   );
 }

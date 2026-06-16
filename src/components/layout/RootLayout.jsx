@@ -1,15 +1,18 @@
 import { Outlet } from "react-router-dom";
+import { EstimateModalProvider } from "../../context/EstimateModalContext";
 import Footer from "./Footer";
 import Header from "./Header";
 
 export default function RootLayout() {
   return (
-    <div className="flex min-h-screen flex-col">
-      <Header />
-      <main className="flex-1">
-        <Outlet />
-      </main>
-      <Footer />
-    </div>
+    <EstimateModalProvider>
+      <div className="flex min-h-screen flex-col">
+        <Header />
+        <main className="flex-1">
+          <Outlet />
+        </main>
+        <Footer />
+      </div>
+    </EstimateModalProvider>
   );
 }

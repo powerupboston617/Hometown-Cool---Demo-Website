@@ -1,6 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import RootLayout from "./components/layout/RootLayout";
 import AboutPage from "./pages/AboutPage";
+import BlogDetailPage from "./pages/BlogDetailPage";
+import BlogIndexPage from "./pages/BlogIndexPage";
 import ContactPage from "./pages/ContactPage";
 import HomePage from "./pages/HomePage";
 import MassSavePage from "./pages/MassSavePage";
@@ -24,6 +26,8 @@ export default function App() {
           <Route path="service-areas/:slug" element={<ServiceAreaPage />} />
           <Route path="mass-save" element={<MassSavePage />} />
           <Route path="about" element={<AboutPage />} />
+          <Route path="blog" element={<BlogIndexPage />} />
+          <Route path="blog/:slug" element={<BlogDetailPage />} />
           <Route path="contact" element={<ContactPage />} />
           <Route path="reviews" element={<ReviewsPage />} />
           <Route path="media" element={<MediaPage />} />

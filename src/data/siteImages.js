@@ -1,6 +1,6 @@
 // Site-wide HVAC photography paths (generated assets in /public/images/hvac/)
 export const siteImages = {
-  heroHomepage: "/images/hvac/hero-home.jpg",
+  heroHomepage: "/images/hvac/local-house.png",
   heroServices: "/images/hvac/hero-services.jpg",
   heroServiceAreas: "/images/hvac/hero-service-areas.jpg",
   heroAbout: "/images/hvac/hero-about.jpg",

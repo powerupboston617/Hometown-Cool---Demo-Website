@@ -33,7 +33,7 @@ export default function ContactPage() {
         <Container>
           <div className="grid gap-12 lg:grid-cols-2">
             <ContactInfo />
-            <ContactForm showInspectionOption />
+            <ContactForm showInspectionOption anchorId="estimate" />
           </div>
         </Container>
       </Section>

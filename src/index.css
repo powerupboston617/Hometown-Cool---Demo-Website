@@ -3,9 +3,12 @@
 @theme {
   --color-brand-black: #000000;
   --color-brand-red: #ff0000;
+  --color-brand-red-hover: #e60000;
   --color-brand-blue: #004eff;
+  --color-brand-blue-hover: #0045e6;
   --color-brand-white: #ffffff;
   --font-sans: system-ui, "Segoe UI", Roboto, sans-serif;
+  --font-serif: Georgia, "Times New Roman", Times, serif;
 }
 
 @layer base {

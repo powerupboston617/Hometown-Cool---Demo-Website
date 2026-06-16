@@ -12,12 +12,10 @@ export const business = {
   hours: "Mon–Fri, 7am – 3pm",
   // Update with real profile URLs before launch
   social: {
-    facebook: "https://www.facebook.com/",
-    twitter: "https://x.com/",
+    facebook: "https://www.facebook.com/hometowncool/",
   },
-  // Web3Forms (or similar) — replace access key before launch
   formEndpoint: "https://api.web3forms.com/submit",
-  formAccessKey: "YOUR_WEB3FORMS_ACCESS_KEY",
+  formAccessKey: "3c034cbe-68d1-4fad-9fb1-b3645b4548ae",
   services: [
     "AC Installation",
     "AC Repair",

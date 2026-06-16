@@ -1,7 +1,6 @@
 import { siteImages } from "../data/siteImages";
 import PageHead from "../components/layout/PageHead";
 import CTABanner from "../components/sections/CTABanner";
-import ContactForm from "../components/sections/ContactForm";
 import PageHero from "../components/sections/PageHero";
 import Container from "../components/ui/Container";
 import ResponsiveImage from "../components/ui/ResponsiveImage";
@@ -54,18 +53,6 @@ export default function AboutPage() {
       </Section>
 
       <CTABanner />
-
-      <Section className="bg-gray-50">
-        <Container>
-          <div className="mx-auto max-w-xl">
-            <ContactForm
-              title="Schedule a Free Inspection"
-              submitLabel="Request Inspection"
-              showInspectionOption
-            />
-          </div>
-        </Container>
-      </Section>
     </>
   );
 }

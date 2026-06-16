@@ -1,7 +1,6 @@
 import { business } from "../data/business";
 import { siteImages } from "../data/siteImages";
 import PageHead from "../components/layout/PageHead";
-import ContactForm from "../components/sections/ContactForm";
 import ContactInfo from "../components/sections/ContactInfo";
 import PageHero from "../components/sections/PageHero";
 import Button from "../components/ui/Button";
@@ -52,9 +51,8 @@ export default function ReviewsPage() {
 
       <Section className="bg-gray-50">
         <Container>
-          <div className="grid gap-12 lg:grid-cols-2">
+          <div className="mx-auto max-w-xl">
             <ContactInfo />
-            <ContactForm title="Send Us a Message" />
           </div>
         </Container>
       </Section>

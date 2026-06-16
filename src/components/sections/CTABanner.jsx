@@ -13,7 +13,7 @@ export default function CTABanner({
           <h2 className="text-3xl font-bold md:text-4xl">{title}</h2>
           <p className="mt-4 text-lg text-white/90">{description}</p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Button href="#estimate" variant="outline" size="lg">
+            <Button href="#estimate" variant="inverse" size="lg">
               Request Estimate
             </Button>
             <Button

@@ -4,7 +4,6 @@ import { siteImages } from "../data/siteImages";
 import { coolingServices, heatingServices } from "../data/servicesContent";
 import PageHead from "../components/layout/PageHead";
 import CTABanner from "../components/sections/CTABanner";
-import ContactForm from "../components/sections/ContactForm";
 import FeatureBlock from "../components/sections/FeatureBlock";
 import PageHero from "../components/sections/PageHero";
 import Container from "../components/ui/Container";
@@ -97,18 +96,6 @@ export default function ServicesPage() {
         title="Schedule a Free Inspection"
         description="Not sure what your system needs? Our Plymouth-based team will assess your heating or cooling setup and recommend the right next step."
       />
-
-      <Section>
-        <Container>
-          <div className="mx-auto max-w-xl">
-            <ContactForm
-              title="Schedule a Free Inspection"
-              submitLabel="Request Inspection"
-              showInspectionOption
-            />
-          </div>
-        </Container>
-      </Section>
     </>
   );
 }
