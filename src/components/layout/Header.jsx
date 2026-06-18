@@ -30,11 +30,11 @@ export default function Header() {
               aria-label="Hometown Cooling & Heating home"
             >
               <img
-                src="/hometown_logo.svg"
+                src="/images/hometown-logo.png"
                 alt=""
                 className="h-10 w-auto md:h-12"
-                width="48"
-                height="40"
+                width="120"
+                height="48"
               />
             </Link>
             <Link
@@ -43,8 +43,8 @@ export default function Header() {
               aria-label="Mass Save program"
             >
               <img
-                src="/images/mass_save_partner.png"
-                alt="Mass Save partner"
+                src="/images/mass-save-heat-pump.png"
+                alt="Mass Save heat pump partner"
                 className="h-9 w-auto md:h-11"
                 width="139"
                 height="85"
