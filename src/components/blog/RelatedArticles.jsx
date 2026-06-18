@@ -39,6 +39,13 @@ const articles = [
     date: "2026-04-02",
     slug: "plymouth-year-round-smart-hvac",
   },
+  {
+    id: 6,
+    title: "Maximize Your Home's Efficiency with the Mass Save® Program",
+    category: "heating",
+    date: "2026-06-16",
+    slug: "maximize-home-efficiency-mass-save-program",
+  },
 ];
 
 function formatDate(dateString) {

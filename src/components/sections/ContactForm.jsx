@@ -56,7 +56,7 @@ export default function ContactForm({
   }
 
   return (
-    <div id={anchorId}>
+    <div id={anchorId} className="card-surface p-6 md:p-8">
       <h2 id={titleId} className="text-2xl font-bold md:text-3xl">
         {title}
       </h2>
@@ -101,7 +101,7 @@ export default function ContactForm({
               type="text"
               required
               autoComplete="name"
-              className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-brand-blue focus:outline-none focus:ring-2 focus:ring-brand-blue/20"
+              className="form-input"
             />
           </div>
 
@@ -115,7 +115,7 @@ export default function ContactForm({
               type="email"
               required
               autoComplete="email"
-              className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-brand-blue focus:outline-none focus:ring-2 focus:ring-brand-blue/20"
+              className="form-input"
             />
           </div>
 
@@ -127,7 +127,7 @@ export default function ContactForm({
               <select
                 id={fieldId("service")}
                 name="service"
-                className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-brand-blue focus:outline-none focus:ring-2 focus:ring-brand-blue/20"
+                className="form-input"
               >
                 <option value="estimate">Free Estimate</option>
                 <option value="inspection">Schedule a Free Inspection</option>
@@ -148,7 +148,7 @@ export default function ContactForm({
               name="message"
               rows={5}
               required
-              className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-brand-blue focus:outline-none focus:ring-2 focus:ring-brand-blue/20"
+              className="form-input"
             />
           </div>
 

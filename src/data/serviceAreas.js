@@ -365,17 +365,64 @@ export const serviceAreas = [
     servicesHighlight: ["AC Repair", "Heating Repair", "Maintenance Plans"],
     neighbors: ["Kingston", "Carver", "Bourne"],
     intro:
-      "Plymouth is our home base, so this is the town we know best. From the historic waterfront downtown to the newer developments spreading west and south, we provide fast, local heating and cooling service across one of the largest towns in the state.",
+      "Plymouth is our home base — Hometown Cooling & Heating is headquartered at 241 Hedges Pond Rd, right here in town. That matters when you need an HVAC contractor who can reach the historic waterfront, Manomet, Cedarville, or the newer neighborhoods west toward Carver without routing your call through a distant dispatch center. We live and work in the same climate you do: humid summers off the bay, salt air near the coast, and shoulder seasons that test aging equipment.",
     body:
-      "Plymouth's sheer size and variety, from antique homes near the harbor to modern subdivisions inland, means we see just about every kind of HVAC situation here. Coastal and downtown homes deal with salt air and older heating systems, while newer inland neighborhoods are more about efficient sizing and modern equipment. Being based in Plymouth means we can respond quickly and we genuinely understand the local housing stock and climate. Whether you need an emergency repair, a system replacement, or a maintenance plan, we're right around the corner.",
+      "As one of the largest towns in Massachusetts, Plymouth has an unusually wide mix of housing. Downtown and harbor-area homes often run on older boilers or furnaces with no central air, while post-war capes and colonials inland may have ductwork that's undersized for modern heat pumps. Newer subdivisions toward South Plymouth and The Pinehills need right-sized efficient systems from day one. We've handled emergency no-heat calls on winter nights, summertime AC failures during heat waves, and planned heat pump installs for homeowners navigating Mass Save rebates — all within minutes of our shop.",
+    sections: [
+      {
+        heading: "HVAC Challenges Unique to Plymouth Homes",
+        paragraphs: [
+          "Coastal exposure along Plymouth Harbor, Long Beach, and Manomet accelerates wear on outdoor condenser coils and mounting hardware. We see corrosion and debris buildup faster than you'd expect inland, which is why we talk honestly about rinse schedules and equipment placement during every quote. Humidity is the other big factor — a system that only blasts cold air without managing moisture leaves rooms feeling damp and can encourage mold in poorly vented spaces.",
+          "Older homes near the waterfront and in the village center frequently lack ductwork. Adding central air can mean tearing into original plaster or losing closet space. Ductless mini-splits and cold-climate heat pumps are often the most practical path to year-round comfort without a major renovation. Inland, we more often see aging oil or gas furnaces approaching end of life, where the decision is repair versus high-efficiency replacement.",
+        ],
+      },
+      {
+        heading: "Heating, Cooling & Maintenance Services in Plymouth",
+        paragraphs: [
+          "We provide full-service HVAC work across Plymouth: furnace and boiler installation, heat pump and central AC installs, ductless mini-splits, heating and air conditioning repair, seasonal maintenance, and energy-efficient upgrades that may qualify for Mass Save incentives. Because we're local, same-week scheduling is often available for non-emergency work, and our technicians arrive knowing Plymouth's housing stock instead of learning your neighborhood on the fly.",
+          "If you're comparing contractors, ask where they're based and whether they'll be available for follow-up after install. We stake our reputation in the town where we work every day — not on a one-time sales visit from a regional chain.",
+        ],
+      },
+      {
+        heading: "Neighborhoods & Landmarks We Serve",
+        paragraphs: [
+          "From Plymouth Rock and the waterfront district to Chiltonville, West Plymouth, The Pinehills, and Manomet, we cover the full town. Kingston, Carver, and Bourne border Plymouth and are a short drive from our shop — many Plymouth customers refer neighbors in those towns too.",
+          "Landmarks like Myles Standish State Forest, Plymouth Long Beach, and the village green aren't just tourism highlights — they're reminders that Plymouth spans coastal, suburban, and wooded terrain in one municipality. Your HVAC needs depend on which slice of that map you call home, and we tailor recommendations accordingly.",
+        ],
+      },
+    ],
     faq: [
       {
         q: "Are you actually located in Plymouth?",
-        a: "Yes. We're based right here on Hedges Pond Road in Plymouth, which means quick response times and a team that knows the local homes and climate firsthand.",
+        a: "Yes. Our office and base of operations is at 241 Hedges Pond Rd in Plymouth, MA 02360. We're not a national franchise with a local phone number — we're a Plymouth-based team serving the South Shore from here.",
       },
       {
         q: "Plymouth is huge. Do you cover the whole town?",
-        a: "We serve all of Plymouth, from the historic downtown and waterfront to the newer inland and southern neighborhoods, with full heating and cooling service.",
+        a: "We serve all of Plymouth — downtown, Manomet, Cedarville, The Pinehills, Chiltonville, West Plymouth, and every neighborhood in between. If you're within Plymouth town limits, we're your local HVAC contractor.",
+      },
+      {
+        q: "How fast can you respond to HVAC emergencies in Plymouth?",
+        a: "Being based in town means shorter drive times than contractors coming from Boston or the Cape. For no-heat emergencies, call (774) 454-0290 right away. We'll prioritize getting heat restored safely. Response times vary with demand during cold snaps, but our Plymouth location is a real advantage.",
+      },
+      {
+        q: "Do you install heat pumps in Plymouth homes?",
+        a: "Yes. Heat pumps and ductless mini-splits are among the most requested upgrades in Plymouth, especially for homes without existing ductwork and for homeowners pursuing Mass Save rebates. We size equipment for Massachusetts winters, not mild-climate templates.",
+      },
+      {
+        q: "Can you help with Mass Save rebates in Plymouth?",
+        a: "We're a Mass Save partner and help Plymouth homeowners understand which HVAC upgrades may qualify, what documentation is needed, and how installs must be completed to meet program standards. Rebate amounts change — we confirm current eligibility when we quote your project.",
+      },
+      {
+        q: "What HVAC brands do you service in Plymouth?",
+        a: "We work on the major residential furnace, boiler, central AC, heat pump, and ductless brands found in Plymouth homes. If you're unsure whether we cover your equipment, call with the model information and we'll let you know.",
+      },
+      {
+        q: "Do you offer maintenance plans for Plymouth homeowners?",
+        a: "Yes. Seasonal tune-ups for heating and cooling catch small problems before they become winter or summer emergencies. Maintenance plans include scheduled visits and are especially valuable for coastal homes where outdoor equipment needs more frequent inspection.",
+      },
+      {
+        q: "Is ductless a good option for older Plymouth homes near the harbor?",
+        a: "Often yes. Harbor-area and village homes frequently lack space for new ductwork. Ductless systems deliver efficient heating and cooling with minimal structural impact — a single outdoor unit can serve multiple indoor zones.",
       },
     ],
     testimonial: null,

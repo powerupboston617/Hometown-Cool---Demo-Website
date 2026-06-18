@@ -1,14 +1,26 @@
 import { Link } from "react-router-dom";
 import { business } from "../../data/business";
 import { getServiceBySlug } from "../../utils/servicePageUtils";
+import {
+  buildBreadcrumbSchema,
+  buildFaqSchemaFromItems,
+  buildServiceSchema,
+} from "../../utils/siteSchema";
 import RelatedArticles from "../blog/RelatedArticles";
 import Breadcrumb from "../layout/Breadcrumb";
 import PageHead from "../layout/PageHead";
+import SectionHeader from "../layout/SectionHeader";
 import CTABanner from "../sections/CTABanner";
+import ContactSidebarCard from "../sections/ContactSidebarCard";
 import FAQAccordion from "../sections/FAQAccordion";
 import PageHero from "../sections/PageHero";
 import Container from "../ui/Container";
+import ContentCard from "../ui/ContentCard";
+import FeatureCheckGrid from "../ui/FeatureCheckGrid";
+import InfoCard from "../ui/InfoCard";
+import ResponsiveImage from "../ui/ResponsiveImage";
 import Section from "../ui/Section";
+import StepCard from "../ui/StepCard";
 
 const whyChooseUsPoints = [
   {
@@ -62,31 +74,28 @@ const howItWorksSteps = [
 
 export default function ServiceLanding({ service }) {
   const heroSrc = service.heroImage;
+  const bodySrc = service.bodyImage || service.heroImage;
 
-  const serviceSchema = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: service.title,
-    description: service.metaDescription,
-    provider: {
-      "@type": "HVACBusiness",
-      name: business.name,
-      telephone: business.phone,
-      url: business.baseUrl,
-    },
-    areaServed: {
-      "@type": "AdministrativeArea",
-      name: "Plymouth County, MA",
-    },
-    url: `${business.baseUrl}/services/${service.slug}`,
-  };
+  const schemas = [
+    buildServiceSchema(service, business),
+    buildBreadcrumbSchema(
+      [
+        { name: "Home", path: "/" },
+        { name: "Services", path: "/services" },
+        { name: service.title, path: `/services/${service.slug}` },
+      ],
+      business
+    ),
+    buildFaqSchemaFromItems(service.faq),
+  ].filter(Boolean);
 
   return (
     <>
       <PageHead
         title={service.metaTitle}
         description={service.metaDescription}
-        schemas={[serviceSchema]}
+        schemas={schemas}
+        ogImage={service.heroImage}
       />
 
       <PageHero
@@ -112,86 +121,100 @@ export default function ServiceLanding({ service }) {
         </Container>
       </div>
 
+      {/* Intro — split column with image */}
       <Section>
         <Container>
-          <div className="mx-auto max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-wider text-brand-red">
-              {service.category}
-            </p>
-            <h2 className="mt-2 text-3xl font-bold">{service.h1}</h2>
-            <p className="mt-4 text-lg text-gray-600">{service.intro}</p>
-            <p className="mt-4 leading-relaxed text-gray-600">{service.body}</p>
+          <div className="grid items-start gap-10 lg:grid-cols-2 lg:gap-14">
+            <div>
+              <p className="section-eyebrow mb-3">{service.category}</p>
+              <h2 className="text-3xl font-bold md:text-4xl">{service.h1}</h2>
+              <p className="mt-5 text-lg leading-relaxed text-text-muted">{service.intro}</p>
+              <p className="mt-4 leading-relaxed text-text-muted">{service.body}</p>
+            </div>
+            <ResponsiveImage
+              src={bodySrc}
+              alt={`${service.title} — professional HVAC service`}
+              aspectClass="aspect-[4/3]"
+              className="shadow-lg lg:sticky lg:top-24"
+            />
           </div>
         </Container>
       </Section>
 
-      <Section>
-        <Container>
-          <div className="mx-auto max-w-5xl">
-            <h2 className="mb-8 text-center text-2xl font-bold md:text-3xl">How It Works</h2>
-            <div className="grid grid-cols-1 items-stretch gap-5 md:grid-cols-2 lg:grid-cols-4">
-              {howItWorksSteps.map((step) => (
-                <div
-                  key={step.number}
-                  className="flex h-full flex-col rounded-xl border border-gray-100 bg-brand-white p-6 shadow-sm"
+      {/* Detail sections — card grid */}
+      {service.sections?.length > 0 && (
+        <Section className="bg-surface-muted">
+          <Container>
+            <SectionHeader
+              align="left"
+              eyebrow="In Depth"
+              title={`What to Know About ${service.title}`}
+            />
+            <div className="mt-10 grid gap-6 md:grid-cols-2">
+              {service.sections.map((section, index) => (
+                <ContentCard
+                  key={section.heading}
+                  title={section.heading}
+                  accent={index % 2 === 0 ? "red" : "blue"}
+                  className={section.paragraphs.length > 2 ? "md:col-span-2" : ""}
                 >
-                  <span className="mb-4 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-red text-sm font-bold text-brand-white">
-                    {step.number}
-                  </span>
-                  <h3 className="text-lg font-bold">{step.title}</h3>
-                  <p className="mt-2 text-gray-600">{step.description}</p>
-                </div>
+                  {section.paragraphs.map((paragraph) => (
+                    <p key={paragraph.slice(0, 48)}>{paragraph}</p>
+                  ))}
+                </ContentCard>
               ))}
             </div>
-          </div>
-        </Container>
-      </Section>
+          </Container>
+        </Section>
+      )}
 
-      <Section className="bg-gray-50">
-        <Container>
-          <div className="mx-auto max-w-2xl">
-            <h2 className="mb-8 text-center text-2xl font-bold md:text-3xl">What We Offer</h2>
-            <ul className="flex flex-col space-y-3">
-              {service.features.map((feature) => (
-                <li
-                  key={feature}
-                  className="flex items-start gap-3 rounded-xl border border-gray-200 bg-brand-white p-4 shadow-sm"
-                >
-                  <span className="mt-1 text-brand-red" aria-hidden="true">
-                    ✓
-                  </span>
-                  <span className="text-gray-700">{feature}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </Container>
-      </Section>
-
+      {/* How it works — step cards */}
       <Section>
         <Container>
-          <div className="mx-auto max-w-4xl">
-            <h2 className="mb-8 text-center text-2xl font-bold md:text-3xl">Why Choose Us</h2>
-            <div className="grid grid-cols-1 items-stretch gap-5 md:grid-cols-2">
-              {whyChooseUsPoints.map((point) => (
-                <div
-                  key={point.title}
-                  className="flex h-full flex-col rounded-xl border border-gray-100 bg-brand-white p-6 shadow-sm"
-                >
-                  <div className="mb-3 h-1 w-6 rounded-full bg-brand-red" />
-                  <h3 className="text-lg font-bold">{point.title}</h3>
-                  <p className="mt-2 text-gray-600">{point.description}</p>
-                </div>
-              ))}
-            </div>
+          <SectionHeader title="How It Works" />
+          <ol className="mx-auto mt-10 grid max-w-5xl gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {howItWorksSteps.map((step) => (
+              <StepCard
+                key={step.number}
+                step={step.number}
+                title={step.title}
+                description={step.description}
+              />
+            ))}
+          </ol>
+        </Container>
+      </Section>
+
+      {/* Features — check grid */}
+      <Section className="bg-gray-50">
+        <Container>
+          <SectionHeader title="What We Offer" />
+          <div className="mx-auto mt-10 max-w-4xl">
+            <FeatureCheckGrid features={service.features} columns={2} />
           </div>
         </Container>
       </Section>
 
-      <Section className="bg-gray-50">
+      {/* Why choose us — info cards */}
+      <Section>
         <Container>
-          <div className="mx-auto max-w-3xl">
-            <FAQAccordion items={service.faq} heading={`${service.title} FAQ`} />
+          <SectionHeader title="Why Choose Us" />
+          <ul className="mx-auto mt-10 grid max-w-4xl gap-4 sm:grid-cols-2">
+            {whyChooseUsPoints.map((point) => (
+              <InfoCard key={point.title} label={point.title} detail={point.description} />
+            ))}
+          </ul>
+        </Container>
+      </Section>
+
+      {/* FAQ — split with sidebar */}
+      <Section className="bg-surface-muted">
+        <Container>
+          <div className="grid gap-10 lg:grid-cols-3 lg:gap-12">
+            <div className="lg:col-span-2">
+              <FAQAccordion items={service.faq} heading={`${service.title} FAQ`} />
+            </div>
+            <ContactSidebarCard className="h-fit lg:sticky lg:top-24" />
           </div>
         </Container>
       </Section>
@@ -199,8 +222,8 @@ export default function ServiceLanding({ service }) {
       {service.relatedServices?.length > 0 && (
         <Section>
           <Container>
-            <h2 className="mb-6 text-2xl font-bold">Related Services</h2>
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <SectionHeader align="left" title="Related Services" />
+            <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {service.relatedServices.map((slug) => (
                 <RelatedServiceLink key={slug} slug={slug} />
               ))}
@@ -226,7 +249,7 @@ function RelatedServiceLink({ slug }) {
   return (
     <Link
       to={`/services/${slug}`}
-      className="rounded-xl border border-gray-200 bg-brand-white px-5 py-4 font-semibold text-brand-blue transition-colors hover:border-brand-red hover:text-brand-red focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue"
+      className="card-surface block px-5 py-4 font-semibold text-brand-blue transition-colors hover:border-brand-red/30 hover:text-brand-red focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue"
     >
       {related.title} →
     </Link>

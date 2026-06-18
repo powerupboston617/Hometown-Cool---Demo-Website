@@ -4,9 +4,9 @@ export default function ContactInfo() {
   const address = `${business.street}, ${business.city}, ${business.state} ${business.zip}`;
 
   return (
-    <div>
+    <div className="card-surface p-6 md:p-8">
       <h2 className="text-2xl font-bold md:text-3xl">Contact Details</h2>
-      <address className="mt-4 space-y-3 not-italic text-gray-600">
+      <address className="mt-4 space-y-3 not-italic text-text-muted">
         <p>
           <span className="font-semibold text-brand-black">Address:</span>
           <br />

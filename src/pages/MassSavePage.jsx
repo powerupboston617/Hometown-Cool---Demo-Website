@@ -1,6 +1,11 @@
+import { business } from "../data/business";
+import { massSaveFaqs, massSaveLocalSection } from "../data/massSaveContent";
 import { siteImages } from "../data/siteImages";
+import { buildBreadcrumbSchema, buildFaqSchemaFromItems } from "../utils/siteSchema";
 import PageHead from "../components/layout/PageHead";
+import SectionHeader from "../components/layout/SectionHeader";
 import CTABanner from "../components/sections/CTABanner";
+import FAQAccordion from "../components/sections/FAQAccordion";
 import PageHero from "../components/sections/PageHero";
 import Container from "../components/ui/Container";
 import Section from "../components/ui/Section";
@@ -35,6 +40,21 @@ const programSteps = [
     title: "Check Income-Based Offers",
     description:
       "If your household income qualifies, you may be eligible for the Income Eligible Program, which can cover up to 100% of the cost for insulation, air sealing, and eligible appliance upgrades.",
+  },
+];
+
+const highlightCards = [
+  {
+    stat: "Rebates",
+    label: "On insulation, weatherization, heat pumps, and efficient equipment",
+  },
+  {
+    stat: "0% Loans",
+    label: "HEAT Loan financing up to $25,000 for qualifying upgrades",
+  },
+  {
+    stat: "No-Cost Assessments",
+    label: "Virtual or in-person home energy evaluations to get started",
   },
 ];
 
@@ -98,12 +118,91 @@ const utilitySponsors = [
   "Unitil",
 ];
 
+function HighlightCard({ stat, label }) {
+  return (
+    <article className="card-hover card-hover-blue flex h-full flex-col items-center justify-center rounded-2xl border border-border bg-surface-muted px-6 py-10 text-center md:px-8 md:py-12">
+      <h3 className="text-2xl font-bold text-brand-blue md:text-3xl">{stat}</h3>
+      <p className="mt-4 max-w-[16rem] text-base leading-relaxed text-text-muted">{label}</p>
+    </article>
+  );
+}
+
+function ProgramStep({ item }) {
+  return (
+    <li className="card-hover card-hover-red flex items-start gap-5 rounded-2xl border border-border bg-surface p-6 shadow-card md:gap-6 md:p-8">
+      <span
+        className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-brand-red text-xl font-bold text-brand-white md:h-16 md:w-16 md:text-2xl"
+        aria-hidden="true"
+      >
+        {item.step}
+      </span>
+      <div className="min-w-0">
+        <h3 className="text-lg font-bold leading-snug text-brand-black md:text-xl">{item.title}</h3>
+        <p className="mt-3 text-base leading-relaxed text-text-muted">{item.description}</p>
+      </div>
+    </li>
+  );
+}
+
+function DataTable({ columns, rows }) {
+  return (
+    <div className="overflow-hidden rounded-2xl border border-border bg-surface shadow-card">
+      <div className="overflow-x-auto">
+        <table className="w-full min-w-[680px] text-left">
+          <thead>
+            <tr className="border-b border-border bg-surface-muted">
+              {columns.map((column) => (
+                <th
+                  key={column}
+                  className="px-6 py-5 text-sm font-semibold uppercase tracking-wide text-brand-black md:px-8 md:py-6"
+                >
+                  {column}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-border">
+            {rows.map((row, index) => (
+              <tr key={row.key} className={index % 2 === 0 ? "bg-surface" : "bg-surface-muted/50"}>
+                {row.cells.map((cell, cellIndex) => (
+                  <td
+                    key={cellIndex}
+                    className={`px-6 py-5 text-base leading-relaxed md:px-8 md:py-6 ${
+                      cellIndex === 0 ? "font-semibold text-brand-black" : "text-text-muted"
+                    }`}
+                  >
+                    {cell}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
 export default function MassSavePage() {
+  const leftSteps = programSteps.slice(0, 3);
+  const rightSteps = programSteps.slice(3);
+
   return (
     <>
       <PageHead
-        title="Mass Save Program"
+        title="Mass Save Program | Heat Pump Rebates Plymouth, MA"
         description="Mass Save rebates, 0% HEAT Loans, and no-cost energy assessments for Massachusetts homeowners. Hometown Cooling & Heating helps Plymouth residents navigate HVAC incentives."
+        schemas={[
+          buildBreadcrumbSchema(
+            [
+              { name: "Home", path: "/" },
+              { name: "Mass Save", path: "/mass-save" },
+            ],
+            business
+          ),
+          buildFaqSchemaFromItems(massSaveFaqs),
+        ].filter(Boolean)}
+        ogImage={siteImages.heatPumpUpgrade}
       />
 
       <PageHero
@@ -120,203 +219,136 @@ export default function MassSavePage() {
         imageAlt="Energy-efficient heat pump upgrade eligible for Mass Save rebates"
       />
 
-      {/* Program overview */}
       <Section>
         <Container>
-          <div className="mx-auto max-w-3xl text-center">
-            <h2 className="text-3xl font-bold">What Is Mass Save?</h2>
-            <p className="mt-4 text-lg leading-relaxed text-gray-600">
-              Mass Save is a collaborative energy efficiency initiative sponsored by Massachusetts
-              gas and electric utilities. Through rebates, zero-interest loans, and professional
-              guidance, the program helps homeowners improve insulation, air sealing, and HVAC
-              systems—including heat pumps—while reducing energy bills and carbon emissions.
-            </p>
-          </div>
+          <SectionHeader
+            title="What Is Mass Save?"
+            description="Mass Save is a collaborative energy efficiency initiative sponsored by Massachusetts gas and electric utilities. Through rebates, zero-interest loans, and professional guidance, the program helps homeowners improve insulation, air sealing, and HVAC systems—including heat pumps—while reducing energy bills and carbon emissions."
+            className="mb-12 md:mb-16"
+          />
 
-          <div className="mx-auto mt-12 grid max-w-4xl gap-6 md:grid-cols-3">
-            {[
-              {
-                stat: "Rebates",
-                label: "On insulation, weatherization, heat pumps, and efficient equipment",
-              },
-              {
-                stat: "0% Loans",
-                label: "HEAT Loan financing up to $25,000 for qualifying upgrades",
-              },
-              {
-                stat: "No-Cost Assessments",
-                label: "Virtual or in-person home energy evaluations to get started",
-              },
-            ].map((item) => (
-              <div
-                key={item.stat}
-                className="rounded-xl border border-gray-100 bg-gray-50 px-6 py-8 text-center"
-              >
-                <p className="text-2xl font-bold text-brand-blue">{item.stat}</p>
-                <p className="mt-2 text-sm leading-relaxed text-gray-600">{item.label}</p>
-              </div>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8">
+            {highlightCards.map((card) => (
+              <HighlightCard key={card.stat} stat={card.stat} label={card.label} />
             ))}
           </div>
         </Container>
       </Section>
 
-      {/* How to participate — steps */}
-      <Section className="bg-gray-50">
+      <Section className="bg-surface-muted">
         <Container>
-          <div className="mx-auto max-w-3xl">
-            <h2 className="text-3xl font-bold">How to Use the Program</h2>
-            <p className="mt-3 text-lg text-gray-600">
-              Residents can take advantage of Mass Save in five straightforward steps:
-            </p>
-          </div>
+          <SectionHeader
+            title="How to Use the Program"
+            description="Residents can take advantage of Mass Save in five straightforward steps:"
+            align="left"
+            className="mb-12 md:mb-16"
+          />
 
-          <ol className="mx-auto mt-10 max-w-3xl space-y-0">
-            {programSteps.map((item, index) => (
-              <li
-                key={item.step}
-                className={`relative flex gap-6 pb-10 ${
-                  index < programSteps.length - 1
-                    ? "border-l border-gray-200 pl-8 ml-4 md:ml-6"
-                    : "pl-8 ml-4 md:ml-6"
-                }`}
-              >
-                <span className="absolute -left-4 flex h-8 w-8 items-center justify-center rounded-full bg-brand-red text-sm font-bold text-brand-white md:-left-5">
-                  {item.step}
-                </span>
-                <div className="pt-0.5">
-                  <h3 className="text-lg font-bold">{item.title}</h3>
-                  <p className="mt-2 leading-relaxed text-gray-600">{item.description}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12">
+            <ol className="flex list-none flex-col gap-6 p-0">
+              {leftSteps.map((item) => (
+                <ProgramStep key={item.step} item={item} />
+              ))}
+            </ol>
+            <ol className="flex list-none flex-col gap-6 p-0">
+              {rightSteps.map((item) => (
+                <ProgramStep key={item.step} item={item} />
+              ))}
+            </ol>
+          </div>
         </Container>
       </Section>
 
-      {/* Program benefits table */}
       <Section>
         <Container>
-          <div className="mx-auto max-w-4xl">
-            <h2 className="text-3xl font-bold">Program Benefits at a Glance</h2>
-            <p className="mt-3 text-gray-600">
-              A quick reference for the main offers available to Massachusetts residents.
-            </p>
+          <SectionHeader
+            title="Program Benefits at a Glance"
+            description="A quick reference for the main offers available to Massachusetts residents."
+            align="left"
+            className="mb-12 md:mb-16"
+          />
 
-            <div className="mt-8 overflow-x-auto rounded-xl border border-gray-200">
-              <table className="w-full min-w-[540px] text-left text-sm">
-                <thead>
-                  <tr className="border-b border-gray-200 bg-gray-50">
-                    <th className="px-5 py-4 font-semibold text-brand-black">Benefit</th>
-                    <th className="px-5 py-4 font-semibold text-brand-black">What You Get</th>
-                    <th className="px-5 py-4 font-semibold text-brand-black">Best For</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {programBenefits.map((row, index) => (
-                    <tr
-                      key={row.label}
-                      className={index % 2 === 0 ? "bg-brand-white" : "bg-gray-50/50"}
-                    >
-                      <td className="px-5 py-4 font-medium text-brand-black">{row.label}</td>
-                      <td className="px-5 py-4 text-gray-600">{row.offer}</td>
-                      <td className="px-5 py-4 text-gray-600">{row.appliesTo}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
+          <DataTable
+            columns={["Benefit", "What You Get", "Best For"]}
+            rows={programBenefits.map((row) => ({
+              key: row.label,
+              cells: [row.label, row.offer, row.appliesTo],
+            }))}
+          />
         </Container>
       </Section>
 
-      {/* HVAC-specific table */}
-      <Section className="bg-gray-50">
+      <Section className="bg-surface-muted">
         <Container>
-          <div className="mx-auto max-w-4xl">
-            <h2 className="text-3xl font-bold">HVAC &amp; Heat Pump Incentives</h2>
-            <p className="mt-3 text-gray-600">
-              Mass Save is a major driver of heat pump adoption across Massachusetts. As your local
-              HVAC contractor, we help Plymouth-area homeowners select qualifying equipment and
-              complete installs that meet program requirements.
-            </p>
+          <SectionHeader
+            title="HVAC & Heat Pump Incentives"
+            description="Mass Save is a major driver of heat pump adoption across Massachusetts. As your local HVAC contractor, we help Plymouth-area homeowners select qualifying equipment and complete installs that meet program requirements."
+            align="left"
+            className="mb-12 md:mb-16"
+          />
 
-            <div className="mt-8 overflow-x-auto rounded-xl border border-gray-200 bg-brand-white">
-              <table className="w-full min-w-[600px] text-left text-sm">
-                <thead>
-                  <tr className="border-b border-gray-200 bg-gray-50">
-                    <th className="px-5 py-4 font-semibold text-brand-black">Upgrade</th>
-                    <th className="px-5 py-4 font-semibold text-brand-black">Mass Save Benefit</th>
-                    <th className="px-5 py-4 font-semibold text-brand-black">How We Help</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {hvacRebates.map((row, index) => (
-                    <tr key={row.upgrade} className={index % 2 === 0 ? "" : "bg-gray-50/50"}>
-                      <td className="px-5 py-4 font-medium text-brand-black">{row.upgrade}</td>
-                      <td className="px-5 py-4 text-gray-600">{row.benefit}</td>
-                      <td className="px-5 py-4 text-gray-600">{row.hometownRole}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+          <DataTable
+            columns={["Upgrade", "Mass Save Benefit", "How We Help"]}
+            rows={hvacRebates.map((row) => ({
+              key: row.upgrade,
+              cells: [row.upgrade, row.benefit, row.hometownRole],
+            }))}
+          />
 
-            <p className="mt-6 text-sm text-gray-500">
-              Rebate amounts and eligibility change periodically. Visit{" "}
-              <a
-                href="https://www.masssave.com/en"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-medium text-brand-blue hover:text-brand-red hover:underline"
-              >
-                MassSave.com
-              </a>{" "}
-              for current offers, or contact us for guidance on your project.
-            </p>
-          </div>
+          <p className="mt-10 text-sm text-text-subtle">
+            Rebate amounts and eligibility change periodically. Visit{" "}
+            <a
+              href="https://www.masssave.com/en"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-brand-blue hover:text-brand-red hover:underline"
+            >
+              MassSave.com
+            </a>{" "}
+            for current offers, or contact us for guidance on your project.
+          </p>
         </Container>
       </Section>
 
-      {/* HEAT Loan + Income eligible — side by side cards */}
       <Section>
         <Container>
-          <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
-            <div className="rounded-xl border border-gray-200 p-6 md:p-8">
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-10">
+            <article className="rounded-2xl border border-border p-8 md:p-10">
               <p className="text-sm font-semibold uppercase tracking-wider text-brand-blue">
                 Financing
               </p>
-              <h3 className="mt-2 text-2xl font-bold">Mass Save HEAT Loan</h3>
-              <dl className="mt-6 space-y-4">
-                <div className="flex justify-between border-b border-gray-100 pb-3">
-                  <dt className="text-gray-600">Interest rate</dt>
+              <h3 className="mt-3 text-2xl font-bold">Mass Save HEAT Loan</h3>
+              <dl className="mt-8 space-y-5">
+                <div className="flex justify-between border-b border-border pb-4">
+                  <dt className="text-text-muted">Interest rate</dt>
                   <dd className="font-semibold">0%</dd>
                 </div>
-                <div className="flex justify-between border-b border-gray-100 pb-3">
-                  <dt className="text-gray-600">Maximum loan</dt>
+                <div className="flex justify-between border-b border-border pb-4">
+                  <dt className="text-text-muted">Maximum loan</dt>
                   <dd className="font-semibold">Up to $25,000</dd>
                 </div>
-                <div className="flex justify-between border-b border-gray-100 pb-3">
-                  <dt className="text-gray-600">Typical use</dt>
+                <div className="flex justify-between border-b border-border pb-4">
+                  <dt className="text-text-muted">Typical use</dt>
                   <dd className="text-right font-semibold">Insulation, air sealing, heat pumps</dd>
                 </div>
                 <div className="flex justify-between">
-                  <dt className="text-gray-600">Best for</dt>
+                  <dt className="text-text-muted">Best for</dt>
                   <dd className="text-right font-semibold">Spreading upgrade costs over time</dd>
                 </div>
               </dl>
-            </div>
+            </article>
 
-            <div className="rounded-xl border border-brand-red/20 bg-red-50/30 p-6 md:p-8">
+            <article className="rounded-2xl border border-brand-red/20 bg-red-50/30 p-8 md:p-10">
               <p className="text-sm font-semibold uppercase tracking-wider text-brand-red">
                 Income Eligible
               </p>
-              <h3 className="mt-2 text-2xl font-bold">Enhanced Support</h3>
-              <p className="mt-4 leading-relaxed text-gray-600">
+              <h3 className="mt-3 text-2xl font-bold">Enhanced Support</h3>
+              <p className="mt-5 leading-relaxed text-text-muted">
                 Qualifying households may receive significantly greater assistance through the
                 Income Eligible Program—including up to <strong>100% coverage</strong> for
                 insulation, air sealing, and eligible appliance upgrades.
               </p>
-              <ul className="mt-4 space-y-2 text-gray-600">
+              <ul className="mt-6 space-y-3 text-text-muted">
                 <li className="flex items-start gap-2">
                   <span className="mt-1 text-brand-red" aria-hidden="true">
                     ✓
@@ -336,30 +368,52 @@ export default function MassSavePage() {
                   Income verification required
                 </li>
               </ul>
+            </article>
+          </div>
+        </Container>
+      </Section>
+
+      <Section className="bg-surface-muted">
+        <Container>
+          <div className="mx-auto max-w-3xl">
+            <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
+              {massSaveLocalSection.heading}
+            </h2>
+            <div className="mt-8 space-y-6 text-lg leading-relaxed text-text-muted">
+              {massSaveLocalSection.paragraphs.map((paragraph) => (
+                <p key={paragraph.slice(0, 48)}>{paragraph}</p>
+              ))}
             </div>
           </div>
         </Container>
       </Section>
 
-      {/* Sponsors + official link */}
-      <Section className="bg-gray-50">
+      <Section>
+        <Container>
+          <div className="mx-auto max-w-3xl">
+            <FAQAccordion heading="Mass Save FAQ" items={massSaveFaqs} />
+          </div>
+        </Container>
+      </Section>
+
+      <Section className="bg-surface-muted">
         <Container>
           <div className="mx-auto max-w-3xl text-center">
-            <h2 className="text-2xl font-bold">Backed by Massachusetts Utilities</h2>
-            <p className="mt-3 text-gray-600">
+            <h2 className="text-2xl font-bold md:text-3xl">Backed by Massachusetts Utilities</h2>
+            <p className="mt-6 text-lg text-text-muted">
               Mass Save is sponsored by the state&apos;s major gas and electric providers, including:
             </p>
-            <ul className="mt-6 flex flex-wrap justify-center gap-3">
+            <ul className="mt-10 flex flex-wrap justify-center gap-4">
               {utilitySponsors.map((sponsor) => (
                 <li
                   key={sponsor}
-                  className="rounded-full border border-gray-200 bg-brand-white px-4 py-2 text-sm font-medium text-gray-700"
+                  className="rounded-full border border-border bg-surface px-5 py-2.5 text-sm font-medium text-text-muted"
                 >
                   {sponsor}
                 </li>
               ))}
             </ul>
-            <p className="mt-8 text-gray-600">
+            <p className="mt-10 text-lg text-text-muted">
               For official program details, current rebate amounts, and to schedule your no-cost
               energy assessment, visit{" "}
               <a
@@ -378,7 +432,7 @@ export default function MassSavePage() {
 
       <CTABanner
         title="Interested in Mass Save Rebates?"
-        description="We help Plymouth-area homeowners understand which HVAC upgrades qualify—and handle professional installation to program standards."
+        description="We help Plymouth and South Shore homeowners understand which HVAC upgrades qualify — and handle professional installation to program standards."
       />
     </>
   );

@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-black: #000000;
+  --color-brand-black: #0a0a0a;
   --color-brand-red: #ff0000;
   --color-brand-red-hover: #e60000;
   --color-brand-blue: #004eff;
@@ -9,8 +9,20 @@
   --color-brand-mass-save: #08c43a;
   --color-brand-mass-save-hover: #07ad34;
   --color-brand-white: #ffffff;
-  --font-sans: system-ui, "Segoe UI", Roboto, sans-serif;
-  --font-serif: Georgia, "Times New Roman", Times, serif;
+  --color-surface: #ffffff;
+  --color-surface-muted: #f4f6f9;
+  --color-surface-subtle: #eef2f7;
+  --color-border: #e2e8f0;
+  --color-border-strong: #cbd5e1;
+  --color-text-muted: #475569;
+  --color-text-subtle: #64748b;
+  --font-sans: "DM Sans", system-ui, "Segoe UI", Roboto, sans-serif;
+  --font-serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.05), 0 1px 2px -1px rgb(0 0 0 / 0.05);
+  --shadow-card-hover: 0 12px 28px -8px rgb(0 0 0 / 0.1), 0 4px 12px -4px rgb(0 0 0 / 0.06);
+  --shadow-hero: 0 24px 48px -12px rgb(0 0 0 / 0.28);
+  --radius-card: 1rem;
+  --radius-button: 0.625rem;
 }
 
 @layer base {
@@ -18,11 +30,152 @@
     scroll-behavior: smooth;
   }
 
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
   body {
-    @apply m-0 font-sans text-brand-black antialiased;
+    @apply m-0 bg-surface font-sans text-brand-black antialiased;
+    line-height: 1.6;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply tracking-tight;
+    text-wrap: balance;
+  }
+
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-brand-blue);
+    outline-offset: 2px;
   }
 
   .prose-on-dark a {
     @apply text-brand-white underline decoration-brand-blue underline-offset-4 hover:decoration-brand-red;
+  }
+}
+
+@layer components {
+  .skip-link {
+    @apply fixed left-4 top-4 z-[200] -translate-y-20 rounded-lg bg-brand-black px-4 py-2 text-sm font-semibold text-brand-white shadow-lg transition-transform focus-visible:translate-y-0;
+  }
+
+  .section-eyebrow {
+    @apply text-sm font-semibold uppercase tracking-wider text-brand-red;
+  }
+
+  .heading-display {
+    @apply text-4xl font-bold leading-tight tracking-tight md:text-5xl lg:text-6xl;
+  }
+
+  .form-input {
+    @apply w-full rounded-lg border border-border bg-brand-white px-4 py-3 text-brand-black transition-colors placeholder:text-text-subtle;
+  }
+
+  .form-input:focus {
+    @apply border-brand-blue outline-none ring-2 ring-brand-blue/20;
+  }
+
+  .card-surface {
+    @apply rounded-2xl border border-border bg-brand-white shadow-card;
+  }
+
+  .card-hover {
+    @apply transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-card-hover motion-reduce:transition-none motion-reduce:hover:translate-y-0;
+  }
+
+  .card-hover-red {
+    @apply hover:border-brand-red/25;
+  }
+
+  .card-hover-blue {
+    @apply hover:border-brand-blue/25;
+  }
+
+  .image-card-hover {
+    @apply transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-card-hover motion-reduce:transition-none motion-reduce:hover:translate-y-0;
+  }
+
+  .image-card-hover img {
+    @apply transition-transform duration-300 ease-out motion-reduce:transition-none;
+  }
+
+  .image-card-hover:hover img {
+    @apply scale-[1.02] motion-reduce:scale-100;
+  }
+
+  .nav-link {
+    @apply relative py-1 text-base font-semibold text-brand-black transition-colors hover:text-brand-red;
+  }
+
+  .nav-link::after {
+    content: "";
+    @apply absolute -bottom-0.5 left-0 h-0.5 w-full origin-left scale-x-0 rounded-full bg-brand-red transition-transform duration-200 ease-out;
+  }
+
+  .nav-link:hover::after,
+  .nav-link-active::after {
+    @apply scale-x-100;
+  }
+
+  .nav-link-active {
+    @apply text-brand-red;
+  }
+
+  .hero-dark {
+    @apply bg-brand-black text-brand-white;
+    background-image: radial-gradient(ellipse 80% 60% at 50% -10%, rgb(0 78 255 / 0.12), transparent);
+  }
+
+  .cta-banner {
+    @apply bg-gradient-to-br from-brand-red to-brand-red-hover text-brand-white;
+  }
+
+  .motion-fade-in {
+    animation: fade-in 0.55s ease-out both;
+  }
+
+  .motion-slide-up {
+    animation: slide-up 0.45s ease-out both;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

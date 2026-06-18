@@ -3,7 +3,7 @@ import { useEstimateModal } from "../../context/EstimateModalContext";
 import { isEstimateHref } from "../../utils/estimateLinks";
 
 const baseClasses =
-  "inline-flex items-center justify-center rounded-lg font-semibold transition-all duration-150 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50";
+  "inline-flex items-center justify-center rounded-[var(--radius-button)] font-semibold transition-all duration-150 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50";
 
 const liftClasses =
   "hover:shadow-md hover:-translate-y-0.5 motion-reduce:hover:translate-y-0 disabled:hover:translate-y-0 disabled:hover:shadow-none";

@@ -33,6 +33,7 @@ export default function GeoPage({ area }) {
         title={area.metaTitle}
         description={area.metaDescription}
         schemas={schemas}
+        ogImage={area.landmarkImage}
       />
       <Layout area={area} />
     </>

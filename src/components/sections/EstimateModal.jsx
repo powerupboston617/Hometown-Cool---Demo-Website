@@ -41,7 +41,7 @@ export default function EstimateModal({ isOpen, onClose }) {
         aria-modal="true"
         aria-labelledby={titleId}
         tabIndex={-1}
-        className="relative z-10 max-h-[90vh] w-full max-w-lg overflow-y-auto rounded-2xl bg-brand-white p-6 shadow-xl sm:p-8"
+        className="relative z-10 max-h-[90vh] w-full max-w-lg overflow-y-auto rounded-2xl bg-brand-white p-6 shadow-card-hover motion-slide-up sm:p-8"
       >
         <button
           type="button"

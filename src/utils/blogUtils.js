@@ -1,7 +1,11 @@
 import { blogPosts } from "../data/blogPosts";
 
+function sortByDateDesc(posts) {
+  return [...posts].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+}
+
 export function getAllBlogPosts() {
-  return blogPosts;
+  return sortByDateDesc(blogPosts);
 }
 
 export function getBlogBySlug(slug) {
@@ -9,8 +13,8 @@ export function getBlogBySlug(slug) {
 }
 
 export function getBlogPostsByCategory(category) {
-  if (!category || category === "All") return blogPosts;
-  return blogPosts.filter((post) => post.category === category);
+  if (!category || category === "All") return sortByDateDesc(blogPosts);
+  return sortByDateDesc(blogPosts.filter((post) => post.category === category));
 }
 
 export function formatBlogDate(dateString) {

@@ -171,7 +171,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 py-6 text-center text-sm text-gray-400">
+        <div className="border-t border-white/10 py-6 text-center text-sm text-gray-400">
           <p>
             &copy; {new Date().getFullYear()} {business.name}. All rights reserved.
           </p>

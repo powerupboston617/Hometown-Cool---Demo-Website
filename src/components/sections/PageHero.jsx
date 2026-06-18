@@ -1,25 +1,24 @@
-import Container from "../ui/Container";
+import { siteImages } from "../../data/siteImages";
 import Button from "../ui/Button";
-import ResponsiveImage from "../ui/ResponsiveImage";
+import Container from "../ui/Container";
+import FullWidthHero from "./FullWidthHero";
 
 export default function PageHero({
   title,
   subtitle,
+  eyebrow,
   primaryCta,
   primaryCtaHref = "#estimate",
   primaryCtaVariant = "primary",
   secondaryCta,
   secondaryCtaHref,
-  dark = true,
-  imageSrc,
+  imageSrc = siteImages.heroHomepage,
   imageAlt,
   logoSrc,
   logoAlt = "",
 }) {
-  const bg = dark ? "bg-brand-black text-brand-white" : "bg-gray-50 text-brand-black";
-
   const content = (
-    <>
+    <div className="motion-fade-in max-w-3xl">
       {logoSrc && (
         <img
           src={logoSrc}
@@ -29,11 +28,10 @@ export default function PageHero({
           height="85"
         />
       )}
-      <h1 className="text-4xl font-bold tracking-tight md:text-5xl">{title}</h1>
+      {eyebrow && <p className="section-eyebrow mb-4 text-brand-red">{eyebrow}</p>}
+      <h1 className="heading-display text-brand-white">{title}</h1>
       {subtitle && (
-        <p className={`mt-4 max-w-2xl text-lg ${dark ? "text-gray-300" : "text-gray-600"}`}>
-          {subtitle}
-        </p>
+        <p className="mt-5 max-w-2xl text-lg leading-relaxed text-gray-200">{subtitle}</p>
       )}
       {(primaryCta || secondaryCta) && (
         <div className="mt-8 flex flex-col gap-4 sm:flex-row">
@@ -49,26 +47,12 @@ export default function PageHero({
           )}
         </div>
       )}
-    </>
+    </div>
   );
 
   return (
-    <section className={bg}>
-      <Container>
-        {imageSrc ? (
-          <div className="grid items-center gap-10 py-16 md:py-20 lg:grid-cols-2 lg:gap-16">
-            <div>{content}</div>
-            <ResponsiveImage
-              src={imageSrc}
-              alt={imageAlt || title}
-              aspectClass="aspect-[4/3] lg:aspect-[5/4]"
-              className={dark ? "shadow-lg shadow-black/30" : "shadow-md"}
-            />
-          </div>
-        ) : (
-          <div className="py-16 md:py-20">{content}</div>
-        )}
-      </Container>
-    </section>
+    <FullWidthHero imageSrc={imageSrc} imageAlt={imageAlt || title}>
+      {content}
+    </FullWidthHero>
   );
 }

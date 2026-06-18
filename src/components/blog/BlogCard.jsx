@@ -5,7 +5,7 @@ export default function BlogCard({ post }) {
   return (
     <article className="group flex h-full flex-col">
       <Link to={`/blog/${post.slug}`} className="flex h-full flex-col focus-visible:outline-none">
-        <div className="relative mb-6 aspect-[16/10] overflow-hidden bg-gray-100">
+        <div className="relative mb-6 aspect-[16/10] overflow-hidden rounded-2xl bg-surface-muted">
           <img
             src={post.image}
             alt={post.imageAlt}

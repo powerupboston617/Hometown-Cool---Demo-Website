@@ -183,4 +183,54 @@ export const blogPosts = [
       },
     ],
   },
+  {
+    slug: "maximize-home-efficiency-mass-save-program",
+    title: "Maximize Your Home's Efficiency with the Mass Save® Program",
+    excerpt:
+      "Massachusetts homeowners can lower utility bills and upgrade HVAC systems through no-cost assessments, rebates, and incentives—here's how the Mass Save® program works.",
+    category: "Heating",
+    date: "2026-06-16",
+    readingTime: "6 min read",
+    image: "/images/blog/blog-mass-save.png",
+    imageAlt: "Mass Save home energy assessment and efficient HVAC upgrade for a Massachusetts residence",
+    metaDescription:
+      "Learn how the Mass Save® program helps Massachusetts homeowners with no-cost energy assessments, rebates, and HVAC upgrades. Hometown Cooling & Heating can guide you through every step.",
+    sections: [
+      {
+        paragraphs: [
+          "Many Massachusetts homeowners put off upgrading their heating and cooling systems because they worry about the high upfront costs. It's a reasonable concern—until you learn about the Mass Save® program. If \"no-cost\" sounds too good to be true, prepare to be pleasantly surprised. Mass Save is a unique initiative designed specifically to help local residents lower their monthly utility bills and boost home comfort without breaking the bank.",
+        ],
+      },
+      {
+        heading: "Understanding the Mass Save® Program",
+        paragraphs: [
+          "Mass Save is a collaborative state-wide effort powered by Massachusetts' leading natural gas and electric utilities, working alongside the Department of Energy Resources (DOER). By joining forces, these providers offer qualified residents the direct guidance, rebates, and financial incentives needed to optimize household energy consumption.",
+          "The cornerstone of this program is the no-cost Home Energy Assessment, which serves as your personalized roadmap to a more efficient home.",
+        ],
+      },
+      {
+        heading: "What to Expect During Your Home Energy Assessment",
+        paragraphs: [
+          "The primary goal of the assessment is to pinpoint exactly where your home is wasting energy and identify the most impactful ways to fix it. When a certified energy specialist evaluates your property, they will:",
+        ],
+        list: [
+          "Inspect HVAC Systems: Check your heating and cooling equipment to ensure it is operating safely and at peak efficiency.",
+          "Detect Air Leaks: Find hidden drafts and structural gaps where conditioned air is escaping.",
+          "Evaluate Insulation: Inspect your attic, walls, and basement insulation to ensure your home can maintain stable temperatures.",
+          "Analyze Energy Use: Provide a personalized breakdown of your household's current energy consumption.",
+          "Deliver Instant Savings: Provide and install complimentary energy-saving items, such as smart thermostats and low-flow water fixtures.",
+        ],
+        paragraphs: [
+          "From advanced weatherization and insulation to top-tier, high-efficiency heating and cooling systems, the Mass Save program opens the door to incredible long-term savings while significantly reducing your environmental footprint.",
+        ],
+      },
+      {
+        heading: "Ready to Start Saving? Let Us Help You!",
+        paragraphs: [
+          "Navigating energy efficiency programs and rebates can sometimes feel overwhelming, but you don't have to do it alone. As your trusted local HVAC experts, we are here to guide you through every step of the process. Whether you want to understand your assessment results, upgrade to a high-efficiency heat pump, or maximize your state rebates, our team is ready to assist.",
+          "Take the first step toward a more comfortable, affordable home today. Contact our friendly support team at (774) 454-0290 or reach out through our website to book your no-cost Mass Save® Home Energy Assessment. We look forward to helping you save energy and money!",
+        ],
+      },
+    ],
+  },
 ];

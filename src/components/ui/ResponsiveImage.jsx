@@ -4,10 +4,21 @@ export default function ResponsiveImage({
   className = "",
   aspectClass = "aspect-[4/3]",
   rounded = "rounded-2xl",
+  priority = false,
+  hoverable = false,
 }) {
+  const hoverClass = hoverable ? "image-card-hover" : "";
+
   return (
-    <div className={`relative overflow-hidden ${rounded} ${aspectClass} ${className}`}>
-      <img src={src} alt={alt} className="h-full w-full object-cover" loading="lazy" />
+    <div className={`relative overflow-hidden ${rounded} ${aspectClass} ${hoverClass} ${className}`}>
+      <img
+        src={src}
+        alt={alt}
+        className="h-full w-full object-cover"
+        loading={priority ? "eager" : "lazy"}
+        decoding="async"
+        fetchPriority={priority ? "high" : "auto"}
+      />
     </div>
   );
 }

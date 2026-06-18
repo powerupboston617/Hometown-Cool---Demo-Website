@@ -10,6 +10,8 @@ export const business = {
   zip: "02360",
   baseUrl: "https://hometown.cool",
   hours: "Mon–Fri, 7am – 3pm",
+  openingHoursSchema: "Mo-Fr 07:00-15:00",
+  ogImage: "/images/hvac/local-house.png",
   // Update with real profile URLs before launch
   social: {
     facebook: "https://www.facebook.com/hometowncool/",

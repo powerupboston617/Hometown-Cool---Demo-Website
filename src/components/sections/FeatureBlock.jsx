@@ -8,8 +8,10 @@ export default function FeatureBlock({
   imageSrc,
   reverse = false,
   accent = "red",
+  imageHoverable = false,
 }) {
   const accentColor = accent === "blue" ? "bg-brand-blue" : "bg-brand-red";
+  const imageHoverClass = imageHoverable ? "image-card-hover" : "";
 
   return (
     <Container>
@@ -21,10 +23,14 @@ export default function FeatureBlock({
         <div>
           <div className={`mb-4 h-1 w-16 rounded-full ${accentColor}`} />
           <h2 className="text-3xl font-bold tracking-tight md:text-4xl">{title}</h2>
-          <p className="mt-4 text-lg leading-relaxed text-gray-600">{description}</p>
+          <p className="mt-4 text-lg leading-relaxed text-text-muted">{description}</p>
         </div>
         {imageSrc ? (
-          <ResponsiveImage src={imageSrc} alt={imageAlt} className="shadow-md" />
+          <ResponsiveImage
+            src={imageSrc}
+            alt={imageAlt}
+            className={`shadow-md ${imageHoverClass}`}
+          />
         ) : (
           <div
             className="flex aspect-[4/3] items-center justify-center rounded-2xl bg-gray-100 shadow-sm"

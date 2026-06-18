@@ -1,3 +1,5 @@
+import { buildFaqSchemaFromItems } from "./siteSchema";
+
 // Builds JSON-LD structured data for each geo landing page.
 // Inject the returned object into the page head as:
 //   <script type="application/ld+json">{JSON.stringify(schema)}</script>
@@ -93,14 +95,5 @@ export function buildBreadcrumbSchema(area, business) {
 
 // FAQPage schema from a town's faq array. Eligible for rich results.
 export function buildFaqSchema(area) {
-  if (!area.faq || !area.faq.length || !area.faq[0].q) return null;
-  return {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: area.faq.map((f) => ({
-      "@type": "Question",
-      name: f.q,
-      acceptedAnswer: { "@type": "Answer", text: f.a },
-    })),
-  };
+  return buildFaqSchemaFromItems(area.faq);
 }

@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
+import { business } from "../data/business";
 import { serviceAreas } from "../data/serviceAreas";
 import { siteImages } from "../data/siteImages";
+import { buildBreadcrumbSchema, buildItemListSchema } from "../utils/siteSchema";
 import PageHead from "../components/layout/PageHead";
 import PageHero from "../components/sections/PageHero";
 import Card from "../components/ui/Card";
@@ -34,8 +36,26 @@ export default function ServiceAreasIndexPage() {
   return (
     <>
       <PageHead
-        title="Service Areas"
+        title="Service Areas | South Shore & Plymouth County HVAC"
         description="Hometown Cooling & Heating serves Plymouth County and surrounding South Shore, South Coast, Cape, and inland communities."
+        schemas={[
+          buildBreadcrumbSchema(
+            [
+              { name: "Home", path: "/" },
+              { name: "Service Areas", path: "/service-areas" },
+            ],
+            business
+          ),
+          buildItemListSchema(
+            "HVAC Service Areas",
+            serviceAreas.map((area) => ({
+              name: area.town,
+              path: `/service-areas/${area.slug}`,
+            })),
+            business
+          ),
+        ].filter(Boolean)}
+        ogImage={siteImages.heroServiceAreas}
       />
 
       <PageHero
