@@ -5,6 +5,7 @@ export const siteImages = {
   heroServiceAreas: "/images/hvac/hero-service-areas.jpg",
   heroAbout: "/images/hvac/hero-about.jpg",
   heroContact: "/images/hvac/hero-contact.jpg",
+  heroBlog: "/images/hvac/hero-blog.jpg",
   coolingService: "/images/hvac/cooling-service.jpg",
   heatingService: "/images/hvac/heating-service.jpg",
   ductlessMiniSplit: "/images/hvac/ductless-mini-split.jpg",

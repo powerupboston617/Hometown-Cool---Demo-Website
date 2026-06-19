@@ -79,15 +79,15 @@ export default function BlogIndexPage() {
             business
           ),
         ].filter(Boolean)}
-        ogImage={siteImages.heroHomepage}
+        ogImage={siteImages.heroBlog}
       />
 
       <PageHero
         eyebrow="The Journal"
         title="Insights for Plymouth Living"
         subtitle="Seasonal guidance on heating, cooling, and air quality—written for neighbors who know what a South Shore winter (and summer) really feels like."
-        imageSrc={siteImages.heroHomepage}
-        imageAlt="Coastal New England home served by Hometown Cooling and Heating"
+        imageSrc={siteImages.heroBlog}
+        imageAlt="Cape Cod style coastal Massachusetts home at golden hour with a heat pump unit"
       />
 
       <Section className="!py-16 md:!py-20">
