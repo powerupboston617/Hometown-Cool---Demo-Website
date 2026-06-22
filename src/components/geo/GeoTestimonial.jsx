@@ -6,7 +6,7 @@ export default function GeoTestimonial({ area }) {
   const { quote, author, location } = area.testimonial;
 
   return (
-    <section className="bg-gray-50 py-12">
+    <section className="bg-surface-muted py-12">
       <Container>
         <blockquote className="mx-auto max-w-2xl text-center">
           <p className="text-xl italic leading-relaxed text-gray-700">&ldquo;{quote}&rdquo;</p>

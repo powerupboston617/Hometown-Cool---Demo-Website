@@ -156,13 +156,13 @@ export default function HomePage() {
       </Section>
 
       {/* Services */}
-      <Section className="bg-gray-50">
+      <Section className="bg-surface-muted">
         <ServicesGrid
           heading="HVAC Services for the South Shore &amp; Beyond"
           subheading="Installation, repair, maintenance, and energy-efficient upgrades for heating and cooling systems — from Plymouth to Duxbury, Wareham, and surrounding towns."
         />
         <Container>
-          <p className="mx-auto mt-10 max-w-3xl text-center text-gray-600">
+          <p className="mx-auto mt-10 max-w-3xl text-center text-text-muted">
             Explore our full{" "}
             <Link to="/services" className="font-semibold text-brand-blue hover:text-brand-red">
               services directory
@@ -220,7 +220,7 @@ export default function HomePage() {
             </ContentCard>
             <ContentCard
               title="Repair, Maintenance &amp; Indoor Air Quality"
-              accent="red"
+              accent="green"
               className="md:col-span-2 lg:col-span-1"
               hoverable
             >
@@ -264,7 +264,7 @@ export default function HomePage() {
                 earlier than expected.
               </p>
             </ContentCard>
-            <ContentCard title="Humidity &amp; Indoor Comfort" accent="red" hoverable>
+            <ContentCard title="Humidity &amp; Indoor Comfort" accent="blue" hoverable>
               <p>
                 Cooling alone doesn't always solve comfort complaints. If your home feels damp in
                 July, the issue may be oversized equipment, poor airflow, or a system that never
@@ -336,7 +336,7 @@ export default function HomePage() {
       </Section>
 
       {/* Heating teaser */}
-      <Section className="bg-gray-50">
+      <Section className="bg-surface-muted">
         <FeatureBlock
           title="Stay Warm All Winter"
           description="New England winters don't forgive a neglected furnace. We install high-efficiency furnaces and boilers, service heat pumps that heat down to low outdoor temperatures, and respond to emergency no-heat calls when your family needs warmth now. Whether you're replacing a 20-year-old system in Kingston or troubleshooting uneven heat in a Plympton colonial, our heating team focuses on safe, code-compliant work and honest recommendations — repair when it makes sense, replace when it saves money long term."
@@ -349,14 +349,14 @@ export default function HomePage() {
       </Section>
 
       {/* Mass Save */}
-      <Section className="bg-gray-50">
+      <Section className="bg-surface-muted">
         <Container>
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
               <h2 className="text-3xl font-bold tracking-tight md:text-4xl">
                 Mass Save Rebates &amp; Efficient Upgrades
               </h2>
-              <p className="mt-6 text-lg leading-relaxed text-gray-600">
+              <p className="mt-6 text-lg leading-relaxed text-text-muted">
                 Massachusetts homeowners have access to some of the strongest energy-efficiency
                 incentives in the country through the{" "}
                 <Link to="/mass-save" className="font-semibold text-brand-blue hover:text-brand-red">
@@ -366,7 +366,7 @@ export default function HomePage() {
                 for rebates and zero-interest HEAT Loan financing when you follow program steps —
                 starting with a home energy assessment.
               </p>
-              <p className="mt-4 text-lg leading-relaxed text-gray-600">
+              <p className="mt-4 text-lg leading-relaxed text-text-muted">
                 As a Mass Save partner, we help you understand which HVAC upgrades fit your
                 comfort goals and which documentation you'll need for rebate submissions. Program
                 rules and dollar amounts change, so we confirm current eligibility when we quote
@@ -386,15 +386,15 @@ export default function HomePage() {
                 </Button>
               </div>
             </div>
-            <div className="card-surface card-hover card-hover-blue flex flex-col items-center justify-center p-10">
+            <div className="card-surface card-hover card-hover-green flex flex-col items-center justify-center p-10">
               <img
-                src="/images/mass_save_partner.png"
-                alt="Mass Save partner logo"
+                src="/images/mass-save-heat-pump.png"
+                alt="Mass Save heat pump partner logo"
                 className="h-auto max-w-[240px]"
                 width={240}
                 height={120}
               />
-              <p className="mt-6 text-center text-gray-600">
+              <p className="mt-6 text-center text-text-muted">
                 Ask about qualifying heat pump and mini-split installations when you request your
                 estimate.
               </p>
@@ -431,7 +431,7 @@ export default function HomePage() {
       </Section>
 
       {/* How we work — step card grid */}
-      <Section className="bg-gray-50">
+      <Section className="bg-surface-muted">
         <Container>
           <SectionHeader
             title="How We Work With Homeowners"
@@ -445,6 +445,7 @@ export default function HomePage() {
                 title={item.title}
                 description={item.description}
                 hoverable
+                accent="green"
               />
             ))}
           </ol>

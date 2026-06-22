@@ -3,7 +3,7 @@ import Container from "../ui/Container";
 
 export default function GeoBreadcrumb({ area }) {
   return (
-    <div className="border-b border-gray-100 bg-gray-50 py-4">
+    <div className="border-b border-gray-100 bg-surface-muted py-4">
       <Container>
         <Breadcrumb
           items={[

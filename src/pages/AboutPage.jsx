@@ -73,6 +73,7 @@ export default function AboutPage() {
               alt="HVAC technician performing professional system maintenance"
               className="shadow-md"
               hoverable
+              accent="green"
             />
           </div>
         </Container>
@@ -90,7 +91,7 @@ export default function AboutPage() {
               <ContentCard
                 key={section.heading}
                 title={section.heading}
-                accent={index % 2 === 0 ? "red" : "blue"}
+                accent="green"
                 hoverable
               >
                 {section.paragraphs.map((paragraph) => (
@@ -111,7 +112,7 @@ export default function AboutPage() {
               <ContentCard
                 key={value.title}
                 title={value.title}
-                accent={index % 2 === 0 ? "red" : "blue"}
+                accent="green"
                 hoverable
               >
                 <p>{value.description}</p>
@@ -140,7 +141,7 @@ export default function AboutPage() {
       </Section>
 
       {/* FAQ — split with sidebar */}
-      <Section className="bg-gray-50">
+      <Section className="bg-surface-muted">
         <Container>
           <div className="grid gap-10 lg:grid-cols-3 lg:gap-12">
             <div className="lg:col-span-2">

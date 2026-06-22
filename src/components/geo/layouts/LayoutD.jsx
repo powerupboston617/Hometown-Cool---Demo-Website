@@ -19,7 +19,7 @@ export default function LayoutD({ area }) {
       <section className="py-12">
         <GeoServicesHighlight area={area} />
       </section>
-      <section className="bg-gray-50">
+      <section className="bg-surface-muted">
         <GeoIntroBody area={area} showBadge={false} />
       </section>
       <GeoFaq area={area} inline />

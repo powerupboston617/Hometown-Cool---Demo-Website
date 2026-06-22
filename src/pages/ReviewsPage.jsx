@@ -51,7 +51,7 @@ export default function ReviewsPage() {
             {reviewsTrustPoints.map((point) => (
               <li
                 key={point.label}
-                className="rounded-xl border border-gray-200 bg-gray-50 px-5 py-6 text-center"
+                className="rounded-xl border border-gray-200 bg-surface-muted px-5 py-6 text-center"
               >
                 <p className="text-sm font-bold uppercase tracking-wide text-brand-red">
                   {point.label}
@@ -62,7 +62,7 @@ export default function ReviewsPage() {
           </ul>
 
           <div className="mx-auto mt-12 max-w-2xl text-center">
-            <div className="rounded-2xl border border-gray-200 bg-gray-50 px-8 py-12">
+            <div className="rounded-2xl border border-gray-200 bg-surface-muted px-8 py-12">
               <h2 className="text-2xl font-bold">Reviews Coming Soon</h2>
               <p className="mt-4 text-gray-600">
                 We&apos;re gathering verified customer feedback to share here. In the meantime, if
@@ -85,7 +85,7 @@ export default function ReviewsPage() {
         </Container>
       </Section>
 
-      <Section className="bg-gray-50">
+      <Section className="bg-surface-muted">
         <Container>
           <div className="mx-auto max-w-3xl">
             <FAQAccordion heading="Reviews FAQ" items={reviewsFaqs} />

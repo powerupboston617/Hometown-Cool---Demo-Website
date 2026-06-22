@@ -1,21 +1,23 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-black: #0a0a0a;
-  --color-brand-red: #ff0000;
-  --color-brand-red-hover: #e60000;
-  --color-brand-blue: #004eff;
-  --color-brand-blue-hover: #0045e6;
-  --color-brand-mass-save: #08c43a;
-  --color-brand-mass-save-hover: #07ad34;
+  --color-brand-black: #000000;
+  --color-brand-red: #53292c;
+  --color-brand-red-hover: #422226;
+  --color-brand-blue: #293551;
+  --color-brand-blue-hover: #1f2840;
+  --color-brand-mass-save: #385032;
+  --color-brand-mass-save-hover: #2d4028;
+  --color-brand-green: #385032;
+  --color-brand-green-hover: #2d4028;
   --color-brand-white: #ffffff;
-  --color-surface: #ffffff;
-  --color-surface-muted: #f4f6f9;
-  --color-surface-subtle: #eef2f7;
-  --color-border: #e2e8f0;
-  --color-border-strong: #cbd5e1;
-  --color-text-muted: #475569;
-  --color-text-subtle: #64748b;
+  --color-surface: #dcd6d3;
+  --color-surface-muted: #d0c9c4;
+  --color-surface-subtle: #d8d2ce;
+  --color-border: #c5bbb2;
+  --color-border-strong: #9d8e7f;
+  --color-text-muted: #9d8e7f;
+  --color-text-subtle: #85786b;
   --font-sans: "DM Sans", system-ui, "Segoe UI", Roboto, sans-serif;
   --font-serif: "Source Serif 4", Georgia, "Times New Roman", serif;
   --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.05), 0 1px 2px -1px rgb(0 0 0 / 0.05);
@@ -97,19 +99,62 @@
   }
 
   .card-hover {
-    @apply transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-card-hover motion-reduce:transition-none motion-reduce:hover:translate-y-0;
+    @apply transition-all duration-300 ease-out hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:translate-y-0;
   }
 
   .card-hover-red {
-    @apply hover:border-brand-red/25;
+    @apply hover:border-brand-red/45;
+  }
+
+  .card-hover-red:hover {
+    box-shadow:
+      0 12px 32px -10px rgb(83 41 44 / 0.35),
+      0 0 0 1px rgb(83 41 44 / 0.12),
+      0 0 24px -4px rgb(83 41 44 / 0.2);
   }
 
   .card-hover-blue {
-    @apply hover:border-brand-blue/25;
+    @apply hover:border-brand-blue/45;
+  }
+
+  .card-hover-blue:hover {
+    box-shadow:
+      0 12px 32px -10px rgb(41 53 81 / 0.35),
+      0 0 0 1px rgb(41 53 81 / 0.12),
+      0 0 24px -4px rgb(41 53 81 / 0.2);
+  }
+
+  .card-hover-green {
+    @apply hover:border-brand-green/45;
+  }
+
+  .card-hover-green:hover {
+    box-shadow:
+      0 12px 32px -10px rgb(56 80 50 / 0.35),
+      0 0 0 1px rgb(56 80 50 / 0.12),
+      0 0 24px -4px rgb(56 80 50 / 0.2);
   }
 
   .image-card-hover {
-    @apply transition-all duration-200 ease-out hover:-translate-y-1 hover:shadow-card-hover motion-reduce:transition-none motion-reduce:hover:translate-y-0;
+    @apply transition-all duration-300 ease-out hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:translate-y-0;
+  }
+
+  .image-card-hover-red:hover {
+    box-shadow:
+      0 12px 32px -10px rgb(83 41 44 / 0.35),
+      0 0 24px -4px rgb(83 41 44 / 0.2);
+  }
+
+  .image-card-hover-blue:hover {
+    box-shadow:
+      0 12px 32px -10px rgb(41 53 81 / 0.35),
+      0 0 24px -4px rgb(41 53 81 / 0.2);
+  }
+
+  .image-card-hover-green:hover {
+    box-shadow:
+      0 12px 32px -10px rgb(56 80 50 / 0.35),
+      0 0 24px -4px rgb(56 80 50 / 0.2);
   }
 
   .image-card-hover img {
@@ -140,7 +185,7 @@
 
   .hero-dark {
     @apply bg-brand-black text-brand-white;
-    background-image: radial-gradient(ellipse 80% 60% at 50% -10%, rgb(0 78 255 / 0.12), transparent);
+    background-image: radial-gradient(ellipse 80% 60% at 50% -10%, rgb(41 53 81 / 0.18), transparent);
   }
 
   .cta-banner {

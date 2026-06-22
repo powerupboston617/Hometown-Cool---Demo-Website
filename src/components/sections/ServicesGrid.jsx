@@ -1,4 +1,5 @@
 import { business } from "../../data/business";
+import { getServiceAccent } from "../../utils/cardAccent";
 import Container from "../ui/Container";
 import ServiceCard from "../ui/ServiceCard";
 
@@ -29,19 +30,24 @@ export default function ServicesGrid({
     <Container>
       <div className="mx-auto mb-12 max-w-2xl text-center">
         <h2 className="text-3xl font-bold tracking-tight md:text-4xl">{heading}</h2>
-        {subheading && <p className="mt-4 text-lg text-gray-600">{subheading}</p>}
+        {subheading && <p className="mt-4 text-lg text-text-muted">{subheading}</p>}
       </div>
       <div className="grid items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {services.map((service) => (
-          <ServiceCard
-            key={service}
-            title={service}
-            description={
-              serviceDescriptions[service] || "Professional HVAC service tailored to your home."
-            }
-            slug={serviceSlugs[service]}
-          />
-        ))}
+        {services.map((service) => {
+          const slug = serviceSlugs[service];
+
+          return (
+            <ServiceCard
+              key={service}
+              title={service}
+              description={
+                serviceDescriptions[service] || "Professional HVAC service tailored to your home."
+              }
+              slug={slug}
+              accent={getServiceAccent(slug || service)}
+            />
+          );
+        })}
       </div>
     </Container>
   );

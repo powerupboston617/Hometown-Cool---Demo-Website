@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { accentBarClass, cardHoverClass } from "../../utils/cardAccent";
 
 export default function ServiceCard({
   title,
@@ -8,15 +9,19 @@ export default function ServiceCard({
   titleClassName = "text-lg font-bold",
   descriptionClassName = "mt-2 flex-grow text-text-muted",
 }) {
-  const accentColor = accent === "blue" ? "bg-brand-blue" : "bg-brand-red";
-  const borderHover = accent === "blue" ? "hover:border-brand-blue/20" : "hover:border-brand-red/20";
+  const cardClasses = `flex h-full w-full flex-col rounded-2xl border border-border bg-brand-white p-6 shadow-card ${cardHoverClass[accent] ?? cardHoverClass.green}`;
 
-  const cardClasses = `flex h-full w-full flex-col rounded-2xl border border-border bg-brand-white p-6 shadow-card transition-all duration-200 ease-out hover:-translate-y-1 ${borderHover} hover:shadow-card-hover motion-reduce:hover:translate-y-0`;
-
-  const accentBarClasses = `mb-4 h-1 w-8 rounded-full ${accentColor} transition-[width] duration-[250ms] ease-out group-hover:w-full`;
+  const accentBarClasses = `mb-4 h-1 w-8 rounded-full ${accentBarClass[accent] ?? accentBarClass.green} transition-[width] duration-[250ms] ease-out group-hover:w-full`;
 
   const arrowClasses =
     "transition-transform duration-200 ease-out group-hover:translate-x-1 motion-reduce:group-hover:translate-x-0";
+
+  const linkHoverClass =
+    accent === "blue"
+      ? "group-hover:text-brand-blue"
+      : accent === "green"
+        ? "group-hover:text-brand-green"
+        : "group-hover:text-brand-red";
 
   const content = (
     <>
@@ -24,11 +29,7 @@ export default function ServiceCard({
       <h3 className={titleClassName}>{title}</h3>
       <p className={descriptionClassName}>{description}</p>
       {slug && (
-        <span
-          className={`mt-auto inline-flex items-center pt-4 text-sm font-semibold text-brand-blue ${
-            accent === "blue" ? "group-hover:text-brand-blue" : "group-hover:text-brand-red"
-          }`}
-        >
+        <span className={`mt-auto inline-flex items-center pt-4 text-sm font-semibold text-brand-blue ${linkHoverClass}`}>
           Learn more
           <span aria-hidden="true" className={arrowClasses}>
             {" →"}

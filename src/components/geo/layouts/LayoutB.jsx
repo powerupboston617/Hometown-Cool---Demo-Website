@@ -18,7 +18,7 @@ export default function LayoutB({ area }) {
       <GeoBreadcrumb area={area} />
       <LandmarkSection area={area} variant="fullBleed" />
       <GeoIntroBody area={area} />
-      <section className="bg-gray-50 py-12">
+      <section className="bg-surface-muted py-12">
         <GeoServicesHighlight area={area} horizontal />
       </section>
       <GeoMapSection area={area} />

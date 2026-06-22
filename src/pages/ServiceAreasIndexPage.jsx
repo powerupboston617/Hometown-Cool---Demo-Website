@@ -6,6 +6,7 @@ import { buildBreadcrumbSchema, buildItemListSchema } from "../utils/siteSchema"
 import PageHead from "../components/layout/PageHead";
 import PageHero from "../components/sections/PageHero";
 import Card from "../components/ui/Card";
+import { getRegionAccent } from "../utils/cardAccent";
 import Container from "../components/ui/Container";
 import Section from "../components/ui/Section";
 
@@ -74,31 +75,43 @@ export default function ServiceAreasIndexPage() {
         if (!towns?.length) return null;
 
         return (
-          <Section key={region} className={region === "South Coast" || region === "Inland" ? "bg-gray-50" : ""}>
+          <Section key={region} className={region === "South Coast" || region === "Inland" ? "bg-surface-muted" : ""}>
             <Container>
               <div className="mb-8">
                 <h2 className="text-3xl font-bold">{region}</h2>
                 <p className="mt-2 max-w-2xl text-gray-600">{regionDescriptions[region]}</p>
               </div>
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                {towns.map((area) => (
-                  <Link
-                    key={area.slug}
-                    to={`/service-areas/${area.slug}`}
-                    className="group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue focus-visible:ring-offset-2 rounded-2xl"
-                  >
-                    <Card className="h-full transition-colors group-hover:border-brand-red">
-                      <h3 className="text-lg font-bold group-hover:text-brand-red">
-                        {area.town}
-                      </h3>
-                      <p className="mt-1 text-sm text-gray-500">{area.county}</p>
-                      <p className="mt-3 line-clamp-2 text-sm text-gray-600">{area.intro}</p>
-                      <span className="mt-4 inline-block text-sm font-semibold text-brand-blue group-hover:text-brand-red">
-                        View services →
-                      </span>
-                    </Card>
-                  </Link>
-                ))}
+                {towns.map((area) => {
+                  const accent = getRegionAccent(area.region);
+                  const titleHoverClass =
+                    accent === "blue"
+                      ? "group-hover:text-brand-blue"
+                      : accent === "green"
+                        ? "group-hover:text-brand-green"
+                        : "group-hover:text-brand-red";
+
+                  return (
+                    <Link
+                      key={area.slug}
+                      to={`/service-areas/${area.slug}`}
+                      className="group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue focus-visible:ring-offset-2 rounded-2xl"
+                    >
+                      <Card className="h-full" accent={accent}>
+                        <h3 className={`text-lg font-bold transition-colors ${titleHoverClass}`}>
+                          {area.town}
+                        </h3>
+                        <p className="mt-1 text-sm text-text-subtle">{area.county}</p>
+                        <p className="mt-3 line-clamp-2 text-sm text-text-muted">{area.intro}</p>
+                        <span
+                          className={`mt-4 inline-block text-sm font-semibold text-brand-blue ${titleHoverClass}`}
+                        >
+                          View services →
+                        </span>
+                      </Card>
+                    </Link>
+                  );
+                })}
               </div>
             </Container>
           </Section>

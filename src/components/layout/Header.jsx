@@ -20,7 +20,7 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-brand-white/95 shadow-sm backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-border bg-surface/95 shadow-sm backdrop-blur-md">
       <Container>
         <div className="flex h-16 items-center justify-between gap-4 md:h-20">
           <div className="flex shrink-0 items-center gap-3 md:gap-4">

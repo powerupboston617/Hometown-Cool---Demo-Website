@@ -16,6 +16,7 @@ export default function PageHero({
   imageAlt,
   logoSrc,
   logoAlt = "",
+  logoClassName = "mb-6 h-14 w-auto md:h-16",
 }) {
   const content = (
     <div className="motion-fade-in max-w-3xl">
@@ -23,7 +24,7 @@ export default function PageHero({
         <img
           src={logoSrc}
           alt={logoAlt}
-          className="mb-6 h-14 w-auto md:h-16"
+          className={logoClassName}
           width="200"
           height="85"
         />

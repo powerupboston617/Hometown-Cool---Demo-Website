@@ -8,7 +8,7 @@ export default function RegionBadge({ region, className = "" }) {
       className={`inline-block rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wider ${className} ${
         isCoastal
           ? "bg-brand-blue/10 text-brand-blue"
-          : "bg-gray-200 text-gray-700"
+          : "bg-surface-subtle text-text-muted"
       }`}
     >
       {isCoastal ? "Coastal" : "Inland"} · {region}

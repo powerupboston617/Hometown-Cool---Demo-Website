@@ -18,7 +18,7 @@ export default function LayoutC({ area }) {
       <GeoHero area={area} variant="C" />
       <GeoBreadcrumb area={area} />
       <GeoIntroBody area={area} split showBadge={false} />
-      <section className="bg-gray-50 py-12">
+      <section className="bg-surface-muted py-12">
         <Container>
           <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
             <GeoMapSection area={area} compact bare />

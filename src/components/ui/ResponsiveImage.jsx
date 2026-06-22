@@ -1,3 +1,5 @@
+import { imageHoverClass } from "../../utils/cardAccent";
+
 export default function ResponsiveImage({
   src,
   alt,
@@ -6,8 +8,9 @@ export default function ResponsiveImage({
   rounded = "rounded-2xl",
   priority = false,
   hoverable = false,
+  accent = "red",
 }) {
-  const hoverClass = hoverable ? "image-card-hover" : "";
+  const hoverClass = hoverable ? imageHoverClass[accent] ?? imageHoverClass.green : "";
 
   return (
     <div className={`relative overflow-hidden ${rounded} ${aspectClass} ${hoverClass} ${className}`}>

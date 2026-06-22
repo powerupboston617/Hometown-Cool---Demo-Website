@@ -47,20 +47,21 @@ const southCoastAreas = [
 
 const footerLinkClass = "text-gray-300 hover:text-brand-white hover:underline";
 
-function FooterHeading({ children, to }) {
+const footerHeadingClass =
+  "mb-4 text-sm font-bold uppercase tracking-wider text-[#9c2017]";
+
+function FooterHeading({ children, to, className = footerHeadingClass }) {
   if (to) {
     return (
-      <h2 className="mb-4 text-sm font-bold uppercase tracking-wider text-brand-red">
-        <Link to={to} className="hover:underline">
+      <h2 className={className}>
+        <Link to={to} className="hover:underline [color:inherit]">
           {children}
         </Link>
       </h2>
     );
   }
 
-  return (
-    <h2 className="mb-4 text-sm font-bold uppercase tracking-wider text-brand-red">{children}</h2>
-  );
+  return <h2 className={className}>{children}</h2>;
 }
 
 function FooterLinkList({ links }) {

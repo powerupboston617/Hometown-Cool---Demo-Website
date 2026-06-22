@@ -1,3 +1,4 @@
+import { accentBarClass } from "../../utils/cardAccent";
 import Container from "../ui/Container";
 import ResponsiveImage from "../ui/ResponsiveImage";
 
@@ -10,9 +11,6 @@ export default function FeatureBlock({
   accent = "red",
   imageHoverable = false,
 }) {
-  const accentColor = accent === "blue" ? "bg-brand-blue" : "bg-brand-red";
-  const imageHoverClass = imageHoverable ? "image-card-hover" : "";
-
   return (
     <Container>
       <div
@@ -21,7 +19,7 @@ export default function FeatureBlock({
         }`}
       >
         <div>
-          <div className={`mb-4 h-1 w-16 rounded-full ${accentColor}`} />
+          <div className={`mb-4 h-1 w-16 rounded-full ${accentBarClass[accent] ?? accentBarClass.green}`} />
           <h2 className="text-3xl font-bold tracking-tight md:text-4xl">{title}</h2>
           <p className="mt-4 text-lg leading-relaxed text-text-muted">{description}</p>
         </div>
@@ -29,7 +27,9 @@ export default function FeatureBlock({
           <ResponsiveImage
             src={imageSrc}
             alt={imageAlt}
-            className={`shadow-md ${imageHoverClass}`}
+            className="shadow-md"
+            hoverable={imageHoverable}
+            accent={accent}
           />
         ) : (
           <div

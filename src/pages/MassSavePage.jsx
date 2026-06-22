@@ -120,8 +120,8 @@ const utilitySponsors = [
 
 function HighlightCard({ stat, label }) {
   return (
-    <article className="card-hover card-hover-blue flex h-full flex-col items-center justify-center rounded-2xl border border-border bg-surface-muted px-6 py-10 text-center md:px-8 md:py-12">
-      <h3 className="text-2xl font-bold text-brand-blue md:text-3xl">{stat}</h3>
+    <article className="card-hover card-hover-green flex h-full flex-col items-center justify-center rounded-2xl border border-border bg-surface-muted px-6 py-10 text-center md:px-8 md:py-12">
+      <h3 className="text-2xl font-bold text-brand-green md:text-3xl">{stat}</h3>
       <p className="mt-4 max-w-[16rem] text-base leading-relaxed text-text-muted">{label}</p>
     </article>
   );
@@ -129,9 +129,9 @@ function HighlightCard({ stat, label }) {
 
 function ProgramStep({ item }) {
   return (
-    <li className="card-hover card-hover-red flex items-start gap-5 rounded-2xl border border-border bg-surface p-6 shadow-card md:gap-6 md:p-8">
+    <li className="card-hover card-hover-green flex items-start gap-5 rounded-2xl border border-border bg-surface p-6 shadow-card md:gap-6 md:p-8">
       <span
-        className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-brand-red text-xl font-bold text-brand-white md:h-16 md:w-16 md:text-2xl"
+        className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-brand-green text-xl font-bold text-brand-white md:h-16 md:w-16 md:text-2xl"
         aria-hidden="true"
       >
         {item.step}
@@ -206,8 +206,9 @@ export default function MassSavePage() {
       />
 
       <PageHero
-        logoSrc="/images/mass-save-logo.svg"
+        logoSrc="/images/mass-save-heat-pump.png"
         logoAlt="Mass Save"
+        logoClassName="mb-6 h-[59px] w-auto md:h-[67px]"
         title="Mass Save"
         subtitle="A consumer-funded Massachusetts program backed by the state's utility providers—helping residents lower energy use, cut costs, and upgrade to efficient heating and cooling."
         primaryCta="Ask About Mass Save"
@@ -338,7 +339,7 @@ export default function MassSavePage() {
               </dl>
             </article>
 
-            <article className="rounded-2xl border border-brand-red/20 bg-red-50/30 p-8 md:p-10">
+            <article className="rounded-2xl border border-brand-red/20 bg-brand-red/5 p-8 md:p-10">
               <p className="text-sm font-semibold uppercase tracking-wider text-brand-red">
                 Income Eligible
               </p>

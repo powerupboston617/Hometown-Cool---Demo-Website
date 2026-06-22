@@ -74,7 +74,7 @@ export default function ContactPage() {
         </Container>
       </Section>
 
-      <Section className="bg-gray-50">
+      <Section className="bg-surface-muted">
         <Container>
           <div className="mx-auto max-w-3xl">
             <h2 className="text-3xl font-bold">{contactExpectations.heading}</h2>
@@ -119,7 +119,7 @@ export default function ContactPage() {
         </Container>
       </Section>
 
-      <Section className="bg-gray-50">
+      <Section className="bg-surface-muted">
         <Container>
           <h2 className="mb-6 text-2xl font-bold">Service Area Map</h2>
           <MapEmbed label="Plymouth County service area map" />

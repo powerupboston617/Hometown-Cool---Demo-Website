@@ -13,6 +13,7 @@ import Container from "../components/ui/Container";
 import ContentCard from "../components/ui/ContentCard";
 import Section from "../components/ui/Section";
 import ServiceCard from "../components/ui/ServiceCard";
+import { getServiceAccent } from "../utils/cardAccent";
 
 function ServiceCategoryGrid({ items, heading, eyebrow, accent = "red" }) {
   return (
@@ -25,7 +26,7 @@ function ServiceCategoryGrid({ items, heading, eyebrow, accent = "red" }) {
             title={item.title}
             description={item.description}
             slug={item.slug}
-            accent={accent}
+            accent={accent === "blue" ? "blue" : getServiceAccent(item.slug)}
             titleClassName="text-xl font-bold"
             descriptionClassName="mt-3 flex-grow text-text-muted"
           />
@@ -87,6 +88,7 @@ export default function ServicesPage() {
                 title={service.title}
                 description={service.intro}
                 slug={service.slug}
+                accent={getServiceAccent(service.slug)}
                 titleClassName="text-lg font-bold"
                 descriptionClassName="mt-2 flex-grow text-sm text-text-muted line-clamp-4"
               />
@@ -129,7 +131,7 @@ export default function ServicesPage() {
       </Section>
 
       {/* Cooling category */}
-      <Section className="bg-gray-50">
+      <Section className="bg-surface-muted">
         <Container>
           <ServiceCategoryGrid
             eyebrow="Cooling"
@@ -162,7 +164,7 @@ export default function ServicesPage() {
                 Learn about upgrades →
               </Link>
             </ContentCard>
-            <ContentCard title="Indoor Air Quality" accent="red" hoverable>
+            <ContentCard title="Indoor Air Quality" accent="green" hoverable>
               <p>
                 Filtration upgrades, ventilation improvements, and humidity control address the
                 dust, pollen, and stale air that temperature alone can't fix — especially in tightly
@@ -193,7 +195,7 @@ export default function ServicesPage() {
       </Section>
 
       {/* Maintenance spotlight */}
-      <Section className="bg-gray-50">
+      <Section className="bg-surface-muted">
         <Container>
           <FeatureBlock
             title="Seasonal Maintenance"

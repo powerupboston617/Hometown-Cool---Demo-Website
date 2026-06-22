@@ -109,7 +109,7 @@ export default function ServiceLanding({ service }) {
         imageAlt={`${service.title} — hero`}
       />
 
-      <div className="border-b border-gray-100 bg-gray-50 py-4">
+      <div className="border-b border-gray-100 bg-surface-muted py-4">
         <Container>
           <Breadcrumb
             items={[
@@ -186,7 +186,7 @@ export default function ServiceLanding({ service }) {
       </Section>
 
       {/* Features — check grid */}
-      <Section className="bg-gray-50">
+      <Section className="bg-surface-muted">
         <Container>
           <SectionHeader title="What We Offer" />
           <div className="mx-auto mt-10 max-w-4xl">
