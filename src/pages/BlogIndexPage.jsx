@@ -84,6 +84,7 @@ export default function BlogIndexPage() {
 
       <PageHero
         eyebrow="The Journal"
+        eyebrowClassName="text-[#9c2017]"
         title="Insights for Plymouth Living"
         subtitle="Seasonal guidance on heating, cooling, and air quality—written for neighbors who know what a South Shore winter (and summer) really feels like."
         imageSrc={siteImages.heroBlog}

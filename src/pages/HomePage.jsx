@@ -47,6 +47,7 @@ export default function HomePage() {
 
       <PageHero
         eyebrow="Plymouth, MA & Surrounding Areas"
+        eyebrowClassName="text-[#9c2017]"
         title="Top-Notch HVAC Solutions for Your Hometown"
         subtitle="Hometown Cooling & Heating is your local HVAC contractor in Plymouth, MA — installing, repairing, and maintaining heating and air conditioning across the South Shore, South Coast, and Cape gateway communities. From heat pump upgrades and AC repair to emergency no-heat calls, we deliver dependable comfort backed by clear communication and workmanship you can trust."
         primaryCta="Get a Free Estimate"

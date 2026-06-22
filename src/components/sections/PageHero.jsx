@@ -17,6 +17,7 @@ export default function PageHero({
   logoSrc,
   logoAlt = "",
   logoClassName = "mb-6 h-14 w-auto md:h-16",
+  eyebrowClassName = "text-brand-red",
 }) {
   const content = (
     <div className="motion-fade-in max-w-3xl">
@@ -29,7 +30,7 @@ export default function PageHero({
           height="85"
         />
       )}
-      {eyebrow && <p className="section-eyebrow mb-4 text-brand-red">{eyebrow}</p>}
+      {eyebrow && <p className={`section-eyebrow mb-4 ${eyebrowClassName}`}>{eyebrow}</p>}
       <h1 className="heading-display text-brand-white">{title}</h1>
       {subtitle && (
         <p className="mt-5 max-w-2xl text-lg leading-relaxed text-gray-200">{subtitle}</p>
